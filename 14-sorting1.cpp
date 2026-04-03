@@ -49,7 +49,6 @@ void insertion_sort(int arr[], int n)
         {
             swap(arr[j-1], arr[j]);
             j--;
-            cout << "runs \n";
         }
     }
 }
