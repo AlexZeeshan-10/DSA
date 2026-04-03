@@ -1,0 +1,2 @@
+Array elements: 10 20 30 40 50 
+Vector elements: 1 20 30 
