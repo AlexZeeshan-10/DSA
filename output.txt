@@ -1,2 +1,1 @@
-Hello...! 
- Welcome to code prac you can practice your code in this file.
+1 2 3 4 7 
