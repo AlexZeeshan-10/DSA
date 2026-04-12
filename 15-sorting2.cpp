@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//MERGE SORT ALGORITHM
+
 void merge(vector<int> &arr, int l, int mid, int h){
     vector<int> temp;
     int left = l, right = mid+1;
