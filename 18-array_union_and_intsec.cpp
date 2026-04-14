@@ -18,11 +18,11 @@ void left_rotate(vector<int> &arr, int count){
 }
 //Move zeros to end
 void move_zero(vector<int> &arr){
-    for (int i = 1; i < arr.size(); i++){
-        for (int j = 0; j < arr.size()-1; j++){
-               if(arr[i] != 0 && arr[j] == 0){
+    int j = 0;
+    for (int i = 0; i < arr.size(); i++){
+               if(arr[i] != 0){
                 swap(arr[i], arr[j]);
-               }
+                j++;
         }
     }
 }
