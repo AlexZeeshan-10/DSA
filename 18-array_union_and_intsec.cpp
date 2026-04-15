@@ -2,9 +2,9 @@
 using namespace std;
 
 void left_rotate(vector<int> &arr, int count){
-    // count %= arr.size();
+    if (arr.empty()) return;
+    count %= arr.size();
     // while(count--){
-    //     if (arr.empty()) return;
     // int temp = arr[0];
     // for (int i = 1; i < arr.size(); i++)
     // {
@@ -18,6 +18,7 @@ void left_rotate(vector<int> &arr, int count){
 }
 //Move zeros to end
 void move_zero(vector<int> &arr){
+    if(arr.empty()) return;
     int j = 0;
     for (int i = 0; i < arr.size(); i++){
                if(arr[i] != 0){
@@ -27,18 +28,30 @@ void move_zero(vector<int> &arr){
     }
 }
 
+//linear search
+vector<int> Linear_Search(vector<int> &arr, int n){
+    vector<int> temp;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if(arr[i]==n){
+            temp.push_back(i); // Save the index where the element was found
+        }
+    }
+    return temp;
+}
+
 int main(){  
-    int n, count;
+    int n, find;
     cin >> n;
     vector<int> arr(n);
     for (int i = 0; i < arr.size(); i++){
         cin >> arr[i];
     }
 
-    cin >> count; 
-    move_zero(arr);
+    cin >> find; 
+    vector<int> s = Linear_Search(arr, find);
 
-    for (int i = 0; i < arr.size(); i++){
-        cout << arr[i] << " ";
+    for (int i = 0; i < s.size(); i++){
+        cout << s[i] << " ";
     }
 }
