@@ -48,6 +48,20 @@ vector<int> Linear_Search(vector<int> &arr, int n)
     return temp;
 }
 
+// Leetcode version of linear serach
+int searchInsert(vector<int> &nums, int target)
+{
+    int n = nums.size();
+    for (int i = 0; i < n; i++)
+    {
+        if (nums.empty())
+            return -1;
+        if (nums[i] == target || nums[i] > target)
+            return i;
+    }
+    return n;
+}
+
 // Finding union and intersection of two sorted arrays
 vector<int> union_array(vector<int> arr1, vector<int> arr2)
 {
