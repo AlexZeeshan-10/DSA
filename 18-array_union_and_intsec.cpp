@@ -51,12 +51,13 @@ vector<int> Linear_Search(vector<int> &arr, int n)
 // Leetcode version of linear serach
 int searchInsert(vector<int> &nums, int target)
 {
+    if (nums.empty())
+        return 0; // The index to insert in an empty array is 0
+
     int n = nums.size();
     for (int i = 0; i < n; i++)
     {
-        if (nums.empty())
-            return -1;
-        if (nums[i] == target || nums[i] > target)
+        if (nums[i] >= target)
             return i;
     }
     return n;
@@ -74,7 +75,7 @@ vector<int> union_array(vector<int> arr1, vector<int> arr2)
     {
         st.insert(arr2[i]);
     }
-    vector<int> temp(st.size());
+    vector<int> temp;
     for (auto it : st)
     {
         temp.push_back(it);
@@ -135,14 +136,32 @@ vector<int> intersection(vector<int> arr1, vector<int> arr2){
     vector<int> temp;
     for(int i=0; i<a; i++){
          for(int j=0; j<b; j++){
-            if(arr1[i]==arr2[j] && vis[j]==0){
+            if(arr2[j] > arr1[i]) break; // Since sorted, we won't find arr1[i] anymore
+            
+            if(arr1[i] == arr2[j] && vis[j] == 0){
                 temp.push_back(arr1[i]);
-                vis[j]=1;
+                vis[j] = 1;
+                break; // Stop searching once we've found and logged a match
             }
-        if(arr2[b]>arr1[a]) break;
         }
     }
     return temp;   
+}
+
+//Optimal approach of intersection of two sorted arrays
+vector<int> opt_intersection(vector<int> arr1, vector<int> arr2){
+    int i=0, j=0;
+    vector<int> temp;
+    while(i<arr1.size() && j<arr2.size()){
+        if(arr1[i] == arr2[j]){
+            temp.push_back(arr1[i]);
+            i++;
+            j++;
+        }
+        else if (arr1[i] < arr2[j]) i++;
+        else j++;
+    }
+    return temp;
 }
 
 int main()
@@ -162,7 +181,7 @@ int main()
         cin >> arr2[i];
     }
 
-    vector<int> s = intersection(arr1, arr2);
+    vector<int> s = opt_intersection(arr1, arr2);
 
     for (int i = 0; i < s.size(); i++)
     {
