@@ -62,7 +62,7 @@ int searchInsert(vector<int> &nums, int target)
     return n;
 }
 
-// Finding union and intersection of two sorted arrays
+// Finding union of two sorted arrays
 vector<int> union_array(vector<int> arr1, vector<int> arr2)
 {
     set<int> st;
@@ -82,6 +82,69 @@ vector<int> union_array(vector<int> arr1, vector<int> arr2)
     return temp;
 }
 
+// Union of two sorted arrays (Optimised approach)
+vector<int> union_arr(vector<int> arr1, vector<int> arr2)
+{
+    int i = 0, j = 0;
+    vector<int> unionArr;
+    while (i < arr1.size() && j < arr2.size())
+    {
+        if (arr1[i] <= arr2[j])
+        {
+            if (unionArr.empty() || arr1[i] != unionArr.back())
+            {
+                unionArr.push_back(arr1[i]);
+            }
+            i++;
+        }
+        else
+        {
+            if (unionArr.empty() || arr2[j] != unionArr.back())
+            {
+                unionArr.push_back(arr2[j]);
+            }
+            j++;
+        }
+    }
+
+    while (i < arr1.size())
+    {
+        if (unionArr.empty() || arr1[i] != unionArr.back())
+        {
+            unionArr.push_back(arr1[i]);
+        }
+        i++;
+    }
+
+    while (j < arr2.size())
+    {
+        if (unionArr.empty() || arr2[j] != unionArr.back())
+        {
+            unionArr.push_back(arr2[j]);
+        }
+        j++;
+    }
+
+    return unionArr;
+}
+
+//intersection of two sorted arrays
+vector<int> intersection(vector<int> arr1, vector<int> arr2){
+    int a = arr1.size(), b = arr2.size();
+    vector<int> vis(b);
+    vector<int> temp;
+    for(int i=0; i<a; i++){
+         for(int j=0; j<b; j++){
+            if(arr1[i]==arr2[j] && vis[j]==0){
+                temp.push_back(arr1[i]);
+                vis[j]=1;
+            }
+        if(arr2[b]>arr1[a]) break;
+        }
+    }
+    return temp;   
+}
+
 int main()
 {
     int s1, s2;
@@ -99,7 +162,7 @@ int main()
         cin >> arr2[i];
     }
 
-    vector<int> s = union_array(arr1, arr2);
+    vector<int> s = intersection(arr1, arr2);
 
     for (int i = 0; i < s.size(); i++)
     {
