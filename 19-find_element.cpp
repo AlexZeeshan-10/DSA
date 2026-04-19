@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 // Find missing numbers
 int missing_no(vector<int> &arr1)
 {
@@ -20,7 +19,6 @@ int missing_no(vector<int> &arr1)
     return -1;
 }
 
-
 // Finding missing numbers optimal approach
 int OPmissing_no(vector<int> &arr1)
 {
@@ -33,7 +31,6 @@ int OPmissing_no(vector<int> &arr1)
     }
     return s1 - s2;
 }
-
 
 // Finding missing numbers optimal approach using XOR method
 int XORmissing_no(vector<int> &arr1)
@@ -49,40 +46,46 @@ int XORmissing_no(vector<int> &arr1)
     return XOR1 ^ XOR2;
 }
 
-
-//Find maximum consecutive ones that appears in the array
+// Find maximum consecutive ones that appears in the array
 int consecutive_ones(vector<int> &arr1)
 {
     int count = 0, ans = 0;
-    for(int num : arr1){
-        if(num == 1) count ++;
-        else count = 0;
+    for (int num : arr1)
+    {
+        if (num == 1)
+            count++;
+        else
+            count = 0;
 
         ans = max(ans, count);
     }
     return ans;
 }
 
-
-//Number not occuring twice in the array
-int single_num(vector<int> arr1){
+// Number not occuring twice in the array
+int single_num(vector<int> arr1)
+{
     map<int, int> mpp;
-    for(int i=0; i<arr1.size(); i++){
+    for (int i = 0; i < arr1.size(); i++)
+    {
         mpp[arr1[i]]++;
     }
-    for(auto it : mpp){
-        if(it.second == 1){
+    for (auto it : mpp)
+    {
+        if (it.second == 1)
+        {
             return it.first;
         }
     }
     return -1;
 }
 
-
-//Number not occuring twice in the array optimal method
-int OPsingle_num(vector<int> arr1){
+// Number not occuring twice in the array optimal method
+int OPsingle_num(vector<int> arr1)
+{
     int XOR = 0;
-    for(int num : arr1){
+    for (int num : arr1)
+    {
         XOR = XOR ^ num;
     }
     return XOR;
@@ -91,20 +94,12 @@ int OPsingle_num(vector<int> arr1){
 int main()
 {
     int s1;
-    int s2;
     cin >> s1;
     vector<int> arr1(s1);
     for (int i = 0; i < arr1.size(); i++)
     {
         cin >> arr1[i];
     }
-
-    // cin >> s2;
-    // vector<int> arr2(s2);
-    // for (int i = 0; i < arr2.size(); i++)
-    // {
-    //     cin >> arr2[i];
-    // }
 
     int s = OPsingle_num(arr1);
     cout << s << endl;
