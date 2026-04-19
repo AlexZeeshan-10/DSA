@@ -21,11 +21,23 @@ int OPmissing_no(vector<int> arr1){
     int n = arr1.size();
     int s1, s2 = 0;
     s1 = n * (n+1) / 2;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++) 
     {
         s2 += arr1[i];
     }
     return s1-s2;
+}
+
+int XORmissing_no(vector<int> arr1){
+    int XOR1 = 0, XOR2 = 0;
+    int n = arr1.size();
+    for (int i = 0; i < n-1; i++)
+    {
+        XOR2 = XOR2 ^ arr1[i]; 
+        XOR1 = XOR1 ^ (i+1);
+    }
+    XOR1 = XOR1 ^ n;
+    return XOR1 ^ XOR2;
 }
 
 int main()
@@ -46,6 +58,6 @@ int main()
     //     cin >> arr2[i];
     // }
 
-    int s = OPmissing_no(arr1);
+    int s = XORmissing_no(arr1);
     cout << s << endl;
 }
