@@ -19,19 +19,13 @@ vector<int> sort(vector<int> &arr){
     {
         arr[i] = 1;
     }
-    for (int i = cnt0+cnt1; i < arr.size(); i++)
+    for (int i = cnt0+cnt1; i < cnt0+cnt1+cnt2; i++)
     {
         arr[i] = 2;
     }
     
     return arr;
 }
-
-//sort 0s, 1s and 2s using Deutch National Flag Algorithm this would be an optimal approach
-vector<int> OPsort(vector<int> &arr){
-    
-}
-
 int main(){
     int n;
     cin >> n;
