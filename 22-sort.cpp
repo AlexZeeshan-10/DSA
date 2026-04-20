@@ -15,11 +15,11 @@ vector<int> sort(vector<int> &arr){
     {
         arr[i] = 0;
     }
-    for (int i = 0; i < cnt1; i++)
+    for (int i = cnt0; i < cnt0+cnt1; i++)
     {
         arr[i] = 1;
     }
-    for (int i = 0; i < cnt2; i++)
+    for (int i = cnt0+cnt1; i < cnt0+cnt1+cnt2; i++)
     {
         arr[i] = 2;
     }
@@ -33,6 +33,13 @@ int main(){
     for (int i = 0; i < arr.size(); i++)
     {
         cin >> arr[i];
+    }
+    
+    vector<int> ans;
+    ans = sort(arr);
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i] << " ";
     }
     
      
