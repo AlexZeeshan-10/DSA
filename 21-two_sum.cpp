@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//two sum returning string in the main function
 string two_sum(vector<int> &arr, int s)
 {
     int left = 0, right = arr.size() - 1;
@@ -19,6 +20,7 @@ string two_sum(vector<int> &arr, int s)
     return "NO";
 }
 
+//optimised version of two sum
 vector<int> OPtwoSum(vector<int> &nums, int target)
 {
     map<int, int> mpp;
