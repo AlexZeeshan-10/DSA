@@ -1,6 +1,31 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
+//sort 0s, 1s and 2s normal approach
+vector<int> sort(vector<int> &arr){
+    int cnt0 = 0, cnt1 = 0, cnt2 = 0;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if(arr[i] == 0) cnt0++;
+        if(arr[i] == 1) cnt1++;
+        if(arr[i] == 2) cnt2++;
+    }
+    for (int i = 0; i < cnt0; i++)
+    {
+        arr[i] = 0;
+    }
+    for (int i = 0; i < cnt1; i++)
+    {
+        arr[i] = 1;
+    }
+    for (int i = 0; i < cnt2; i++)
+    {
+        arr[i] = 2;
+    }
+    
+    return arr;
+}
 int main(){
     int n;
     cin >> n;
@@ -10,5 +35,5 @@ int main(){
         cin >> arr[i];
     }
     
-    
+     
 }
