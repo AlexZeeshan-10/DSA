@@ -29,6 +29,33 @@ vector<int> sort(vector<int> &arr)
 
     return arr;
 }
+
+// sort 0s, 1s and 2s optimal approach
+vector<int> OPsort(vector<int> &arr)
+{
+    int low = 0, mid = 0, high = arr.size() - 1;
+    while (mid <= high)
+    {
+        if (arr[mid] == 0)
+        {
+            swap(arr[low], arr[mid]);
+            low++;
+            mid++;
+        }
+        else if (arr[mid] == 1)
+        {
+            mid++;
+        }
+        else
+        {
+            swap(arr[mid], arr[high]);
+            high--;
+        }
+    }
+    return arr;
+}
+
+//main function
 int main()
 {
     int n;
@@ -39,8 +66,9 @@ int main()
         cin >> arr[i];
     }
 
+
     vector<int> ans;
-    ans = sort(arr);
+    ans = OPsort(arr);
     for (int i = 0; i < ans.size(); i++)
     {
         cout << ans[i] << " ";
