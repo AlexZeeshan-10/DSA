@@ -35,6 +35,9 @@ int major_ele(vector<int> &arr){
     return ans;
 }
 
+
+
+
 int main(){
     int n;
     cin >> n;
@@ -44,4 +47,4 @@ int main(){
     }
     int x = major_ele(arr);
     cout << x;
-}
+} 
