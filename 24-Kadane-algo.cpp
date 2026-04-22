@@ -2,7 +2,10 @@
 using namespace std;
 
 
-
+//Optimal approach for Max sum of subarray
+int Kadane_algo(vector<int> &arr){
+    
+}
 
 int main(){
 
