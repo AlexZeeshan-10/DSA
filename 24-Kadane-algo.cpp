@@ -32,7 +32,6 @@ int main()
     {
         cin >> arr[i];
     }
-    int ans = Kadane_algo(arr);
     
-    cout << ans;
+
 }
