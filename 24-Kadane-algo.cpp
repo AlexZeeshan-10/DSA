@@ -51,6 +51,8 @@ int main()
     {
         cin >> arr[i];
     }
-    
+     int c =Kadane_algo(arr);
+     cout << c << " ";
+
 
 }
