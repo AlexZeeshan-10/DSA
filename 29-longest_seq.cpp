@@ -27,6 +27,25 @@ int longestSuccessiveElements_BruteForce(vector<int>& arr) {
     return longest;
 }
 
+
+//Optimal approach for longest sequence in an array
+int longestSuccessiveElement_Optimal(vector<int> &arr){
+    sort(arr.begin(), arr.end());
+    int longest = 1, count = 0, Lsmall = INT_MIN;
+    for(int i=0; i<arr.size(); i++){
+        if(arr[i]-1 == Lsmall){
+            count += 1;
+            Lsmall = arr[i];
+        }
+        else if(arr[i] != Lsmall){
+            count = 1;
+            Lsmall = arr[i];
+        }
+        longest = max(longest, count);
+    }
+    return longest;
+}
+
 int main(){
     int n;
     cin >> n;
@@ -37,6 +56,6 @@ int main(){
     }
     
     // Output the result
-    cout << longestSuccessiveElements_BruteForce(arr) << endl;
+    cout << longestSuccessiveElement_Optimal(arr) << endl;
     return 0;
 }
