@@ -7,7 +7,35 @@ The brute force solution takes almost n^3 time complexity so I'm skipping that f
 
 
 // Brute for approach to set zeros in the matrix
-
+vector<vector<int>> zeroMatrixBtr(vector<vector<int>> &arr, int m, int n){
+    int row[m] = {0};
+    int col[n] = {0};
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (arr[i][j] == 0)
+            {
+                row[i] = 1;
+                col[j] = 1;
+            }
+            
+        }
+        
+    }
+    
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if(row[i] == 1 || col[j] == 1){
+                arr[i][j] = 0;
+            }
+        }
+        
+    }
+    return arr;
+}
 
 int main(){
     int n, m;
@@ -22,5 +50,11 @@ int main(){
             cin >> matrix[i][j];
         }
     }
-       
+    vector<vector<int>> ans = zeroMatrixBtr(matrix, m, n);
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
 }
