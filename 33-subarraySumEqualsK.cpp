@@ -1,9 +1,9 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-
 // Better solution for Subarray sum that is equal to k
-int subArraySum(vector<int> &arr, int k){
+int subArraySum(vector<int> &arr, int k)
+{
     int count = 0;
     for (int i = 0; i < arr.size(); i++)
     {
@@ -11,14 +11,15 @@ int subArraySum(vector<int> &arr, int k){
         for (int j = i; j < arr.size(); j++)
         {
             sum += arr[j];
-            if(sum == k) count++;
+            if (sum == k)
+                count++;
         }
-        
     }
     return count;
 }
 
-int main(){
+int main()
+{
     int n, k;
     cin >> n;
     cin >> k;
@@ -27,8 +28,7 @@ int main(){
     {
         cin >> arr[i];
     }
-    
+
     int ans = subArraySum(arr, k);
     cout << ans << " ";
-     
 }
