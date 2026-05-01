@@ -18,6 +18,22 @@ int subArraySum(vector<int> &arr, int k)
     return count;
 }
 
+
+// Better solution for Subarray sum that is equal to k
+int subArraySumOpt(vector<int> &arr, int k){
+    map<int, int> mpp;
+    mpp[0] = 1;
+    int preSum = 0, cnt = 0;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        preSum += arr[i];
+        int remove = preSum - k;
+        cnt += mpp[remove];
+        mpp[preSum] += 1;
+    }
+    return cnt;
+}
+
 int main()
 {
     int n, k;
@@ -29,6 +45,6 @@ int main()
         cin >> arr[i];
     }
 
-    int ans = subArraySum(arr, k);
+    int ans = subArraySumOpt(arr, k);
     cout << ans << " ";
 }
