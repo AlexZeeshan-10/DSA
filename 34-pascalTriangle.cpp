@@ -1,38 +1,44 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// generating pascal triangle row
+vector<long long> TriangleRow(int row){
+    long long ans = 1;
+    vector<long long> ansRow;
+    ansRow.push_back(1);
 
-// To calculate nCr of a given number
-int nCr(int n, int r){
-    long long res = 1;
-    for (int i = 0; i < r; i++)
-    {
-        res = res*(n-i);
-        res = res / (i + 1);
+    for(int col = 1; col < row; col++){
+        ans = ans * (row - col);
+        ans = ans / col;
+        ansRow.push_back(ans);
     }
-    return res;
+
+    return ansRow;
 }
 
+vector<vector<long long>> generateTriangle(int n){
+    vector<vector<long long>> ans;
 
-//generating pascal triangle row
-void pasTriangleRow(int n){
-    int ans = 1;
-    cout << "1 ";
-    for(int c = 1; c<n; c++){
-        ans = ans * (n-c);
-        ans = ans / c;
-        cout << ans << " ";
+    for(int i = 1; i <= n; i++){
+        ans.push_back(TriangleRow(i));
     }
-}
 
+    return ans;
+}
 
 int main(){
-    // code pending re-watch understand again and write the code over here
     int n;
     cin >> n;
-    for (int i = 1; i < n+1; i++)
-    {
-        pasTriangleRow(i);
+
+    vector<vector<long long>> res = generateTriangle(n);
+
+    // print triangle
+    for(auto row : res){
+        for(auto val : row){
+            cout << val << " ";
+        }
         cout << endl;
     }
+
+    return 0;
 }
