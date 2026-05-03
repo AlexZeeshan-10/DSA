@@ -2,7 +2,8 @@
 using namespace std;
 
 
-//
+//writing code for better solution to determine major element in an array using list and map data structure
+
 
 
 int main(){
