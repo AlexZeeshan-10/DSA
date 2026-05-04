@@ -23,6 +23,8 @@ vector<vector <int>> triplet(vector<int> &arr){
     return ans;
 }
 
+
+
 int main(){
     int n;
     cin >> n;
