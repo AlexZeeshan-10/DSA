@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// better version
 vector<vector<int>> triplet(vector<int> &arr)
 {
     int n = arr.size();
@@ -24,6 +25,8 @@ vector<vector<int>> triplet(vector<int> &arr)
     return ans;
 }
 
+
+//optimal solution
 vector<vector<int>> tripletOpt(vector<int> &arr)
 {
     vector<vector<int>> ans;
