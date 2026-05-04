@@ -2,7 +2,9 @@
 using namespace std;
 
 
-
+vector<vector <int>> triplet(vector<int> &arr){
+    
+}
 
 int main(){
     int n;
