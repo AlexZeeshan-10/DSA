@@ -1,7 +1,14 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main(){
+// better function to returing quad that sums up to the target value
+vector<vector<int>> fourSumbtr(vector<int> &arr, int target)
+{
+    
+}
+
+int main()
+{
     int n;
     cin >> n;
     vector<int> arr(n, 0);
@@ -9,6 +16,4 @@ int main(){
     {
         cin >> arr[i];
     }
-    
-    
 }
