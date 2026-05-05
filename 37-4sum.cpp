@@ -49,6 +49,24 @@ vector<vector<int>> fourSumOpt(vector<int> &arr, int target)
             while (k < l)
             {
                 
+                long long sum = arr[i];
+                sum = arr[j];
+                sum = arr[k];
+                sum = arr[l];
+                if (sum == target)
+                {
+                    vector<int> temp = {arr[i], arr[j], arr[k], arr[l]};
+                    ans.push_back(temp);
+                    k++, l--;
+                    while (k < l && arr[k] == arr[k - 1])
+                        k++;
+                    while (k < l && arr[l] == arr[l + 1])
+                        l--;
+                }
+                else if (sum < target)
+                    k++;
+                else
+                    l--;
             }
         }
     }
