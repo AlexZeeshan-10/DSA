@@ -11,17 +11,18 @@ vector<vector<int>> fourSumbtr(vector<int> &arr, int target)
         for (int j = i + 1; j < n; j++)
         {
             set<long long> hashset;
-            for (int k = j + 1; k < n; i++)
+            for (int k = j + 1; k < n; k++)
             {
                 long long sum = arr[i] + arr[j];
                 sum += arr[k];
                 long long fourth = target - (sum);
                 if (hashset.find(fourth) != hashset.end())
                 {
-                    vector<int> temp = {arr[i], arr[j], arr[k], arr[fourth]};
+                    vector<int> temp = {arr[i], arr[j], arr[k], (int)fourth};
                     sort(temp.begin(), temp.end());
                     st.insert(temp);
                 }
+                hashset.insert(arr[k]);
             }
         }
     }
@@ -40,7 +41,7 @@ vector<vector<int>> fourSumOpt(vector<int> &arr, int target)
     {
         if (i > 0 && arr[i] == arr[i - 1])
             continue;
-        for (int j = i + 1; i < n; j++)
+        for (int j = i + 1; j < n; j++)
         {
             if (j != (i + 1) && arr[j] == arr[j - 1])
                 continue;
@@ -50,9 +51,9 @@ vector<vector<int>> fourSumOpt(vector<int> &arr, int target)
             {
                 
                 long long sum = arr[i];
-                sum = arr[j];
-                sum = arr[k];
-                sum = arr[l];
+                sum += arr[j];
+                sum += arr[k];
+                sum += arr[l];
                 if (sum == target)
                 {
                     vector<int> temp = {arr[i], arr[j], arr[k], arr[l]};
@@ -75,11 +76,23 @@ vector<vector<int>> fourSumOpt(vector<int> &arr, int target)
 
 int main()
 {
-    int n;
+    int n, target;
     cin >> n;
+    cin >> target;
     vector<int> arr(n, 0);
     for (int i = 0; i < arr.size(); i++)
     {
         cin >> arr[i];
     }
+
+    vector<vector <int>> ans = fourSumOpt(arr, target);
+    for (int i = 0; i < ans.size(); i++)
+    {
+        for (int j = 0; j < ans[i].size(); j++)
+        {
+            cout << ans[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
 }
