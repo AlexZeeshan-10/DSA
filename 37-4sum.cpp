@@ -29,6 +29,12 @@ vector<vector<int>> fourSumbtr(vector<int> &arr, int target)
     return ans;
 }
 
+// Optimal function to returing quad that sums up to the target value
+vector<vector<int>> fourSumOpt(vector<int> &arr, int target)
+{
+    
+}
+
 int main()
 {
     int n;
