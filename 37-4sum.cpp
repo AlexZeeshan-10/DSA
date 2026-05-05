@@ -33,7 +33,7 @@ vector<vector<int>> fourSumbtr(vector<int> &arr, int target)
 // Optimal function to returing quad that sums up to the target value
 vector<vector<int>> fourSumOpt(vector<int> &arr, int target)
 {
-    
+
     int n = arr.size();
     vector<vector<int>> ans;
     sort(arr.begin(), arr.end());
@@ -49,7 +49,7 @@ vector<vector<int>> fourSumOpt(vector<int> &arr, int target)
             int l = n - 1;
             while (k < l)
             {
-                
+
                 long long sum = arr[i];
                 sum += arr[j];
                 sum += arr[k];
@@ -85,7 +85,7 @@ int main()
         cin >> arr[i];
     }
 
-    vector<vector <int>> ans = fourSumOpt(arr, target);
+    vector<vector<int>> ans = fourSumOpt(arr, target);
     for (int i = 0; i < ans.size(); i++)
     {
         for (int j = 0; j < ans[i].size(); j++)
@@ -94,5 +94,4 @@ int main()
         }
         cout << endl;
     }
-    
 }
