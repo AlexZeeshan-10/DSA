@@ -21,8 +21,9 @@ int subXORbtr(vector<int> &arr, int k)
 
 int main()
 {
-    int n;
+    int n, k;
     cin >> n;
+    cin >> k;
     vector<int> arr(n, 0);
     for (int i = 0; i < arr.size(); i++)
     {
