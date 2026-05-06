@@ -19,6 +19,10 @@ int subXORbtr(vector<int> &arr, int k)
     return count;
 }
 
+int subXORopt(vector<int> &arr, int k)
+{
+}
+
 int main()
 {
     int n, k;
@@ -30,6 +34,6 @@ int main()
         cin >> arr[i];
     }
 
-    int ans = subXORbtr(arr, k);
+    int ans = subXORopt(arr, k);
     cout << ans << " ";
 }
