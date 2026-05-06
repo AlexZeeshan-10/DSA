@@ -10,4 +10,6 @@ int main(){
         cin >> arr[i];
     }
     
+    int ans = subXORbtr(arr, k);
+    cout << ans << " ";
 }
