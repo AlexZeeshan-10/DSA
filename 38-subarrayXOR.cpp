@@ -7,7 +7,7 @@ int subXORbtr(vector<int> &arr, int k)
     for (int i = 0; i < arr.size(); i++)
     {
         int XOR = 0;
-        for (int j = 0; j < arr.size(); j++)
+        for (int j = i; j < arr.size(); j++)
         {
             XOR = XOR ^ arr[j];
             if (XOR == k)
