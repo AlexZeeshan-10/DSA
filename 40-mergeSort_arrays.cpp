@@ -4,6 +4,17 @@ using namespace std;
 void mergeSortArray(vector<int> &arr1, vector<int> &arr2)
 {
     
+    int left = arr1.size() - 1, right = 0;
+    while(left > -1 && right < arr2.size()){
+        if(arr1[left] > arr2[right]) {
+            swap(arr1[left], arr2[right]);
+            left--;
+            right++;
+        }
+        else break;
+    }
+    sort(arr1.begin(), arr1.end());
+    sort(arr2.begin(), arr2.end());
 }
 
 int main()
