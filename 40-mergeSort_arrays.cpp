@@ -30,6 +30,10 @@ void mergeSortArray(vector<int> &arr1, vector<int> &arr2)
 }
 
 // Optimal solution version 2{shell method} mentioned in the video
+void mergeSortArr2(vector<int> &arr1, vector<int> &arr2){
+    //write the code here from the video
+}
+
 
 int main()
 {
