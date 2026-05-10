@@ -1,9 +1,13 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
+// brute force method to find missing and repeating number in an array of size n
+void missingAndRepeat(vector<int> &arr)
+{
+}
 
-
-int main(){
+int main()
+{
     int n;
     cin >> n;
     vector<int> arr(n, 0);
@@ -11,5 +15,5 @@ int main(){
     {
         cin >> arr[i];
     }
-    
+    missingAndRepeat(arr);
 }
