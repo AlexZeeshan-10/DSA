@@ -27,15 +27,18 @@ void missingAndRepeatBrute(vector<int> &arr)
 
 //better solution for finding missing and repeating
 void missingAndRepeatBtr(vector<int> &arr){
-    map<int, int> mpp;
-    int repeat;
-    for(int it:arr){
-        mpp[it]++;
+    int n = arr.size();
+    int hash[n+1] = {0};
+    int repeat = -1, missing = -1;
+    for(int i=0; i<n; i++){
+        hash[arr[i]]++;
     }
-    for(auto x:mpp){
-        if(x.second == 2) repeat = x.first;
+    for(int i = 1; i < n+1; i++){
+        if(hash[i] == 2) repeat = i;
+        else if(hash[i] == 0) missing = i;
+        if(repeat != -1 && missing != -1) break;
     }
-    cout << repeat << " ";
+    cout << repeat << ", " << missing;
 }
 
 
