@@ -27,7 +27,15 @@ void missingAndRepeatBrute(vector<int> &arr)
 
 //better solution for finding missing and repeating
 void missingAndRepeatBtr(vector<int> &arr){
-    
+    map<int, int> mpp;
+    int repeat;
+    for(int it:arr){
+        mpp[it]++;
+    }
+    for(auto x:mpp){
+        if(x.second == 2) repeat = x.first;
+    }
+    cout << repeat << " ";
 }
 
 
