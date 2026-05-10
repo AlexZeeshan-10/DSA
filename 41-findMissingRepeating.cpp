@@ -2,9 +2,8 @@
 using namespace std;
 
 // brute force method to find missing and repeating number in an array of size n
-void missingAndRepeat(vector<int> &arr)
+void missingAndRepeatBrute(vector<int> &arr)
 {
-    
     int repeat = -1;
     int missing = -1;
     for (int i = 0; i < arr.size() - 1; i++)
@@ -25,6 +24,13 @@ void missingAndRepeat(vector<int> &arr)
     cout << "Repeating and missing numbers are: " << repeat << ", " << missing;
 }
 
+
+//better solution for finding missing and repeating
+void missingAndRepeatBtr(vector<int> &arr){
+    
+}
+
+
 int main()
 {
     int n;
@@ -34,5 +40,5 @@ int main()
     {
         cin >> arr[i];
     }
-    missingAndRepeat(arr);
+    missingAndRepeatBtr(arr);
 }
