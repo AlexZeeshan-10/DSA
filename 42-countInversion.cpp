@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//merge algo
 int merge(vector<int> &arr, int l, int mid, int h)
 {
     int cnt = 0;
@@ -41,6 +42,8 @@ int merge(vector<int> &arr, int l, int mid, int h)
     return cnt;
 }
 
+
+//mergeSort algo
 int merge_sort(vector<int> &arr, int l, int h)
 {
     int cnt = 0;
@@ -58,6 +61,8 @@ int inversionCount(vector<int> &arr)
     return merge_sort(arr, 0, arr.size() - 1);
 }
 
+
+//main function
 int main()
 {
     int n;
@@ -69,4 +74,5 @@ int main()
     }
 
     int ans = inversionCount(arr);
+    cout << ans;
 }
