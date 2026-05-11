@@ -42,7 +42,9 @@ void missingAndRepeatBtr(vector<int> &arr){
 }
 
 
-
+vector<int> missingAndRepeatOptMath(vector<int> &arr){
+    
+}
 
 int main()
 {
@@ -53,5 +55,10 @@ int main()
     {
         cin >> arr[i];
     }
-    missingAndRepeatBtr(arr);
+    vector<int> ans = missingAndRepeatOptMath(arr);
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i] << " ";
+    }
+    
 }
