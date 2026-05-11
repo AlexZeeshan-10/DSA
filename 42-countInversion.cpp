@@ -2,7 +2,10 @@
 using namespace std;
 
 
+int inversionCount(vector<int>& arr) {
 
+        
+}
 
 int main(){
     int n;
