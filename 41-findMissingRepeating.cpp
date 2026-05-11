@@ -1,6 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/*
+
+Input to be used to check the functionality of the program
+5
+1 2 2 4 5
+
+*/
 // brute force method to find missing and repeating number in an array of size n
 void missingAndRepeatBrute(vector<int> &arr)
 {
