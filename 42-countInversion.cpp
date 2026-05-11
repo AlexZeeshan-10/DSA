@@ -2,6 +2,7 @@
 using namespace std;
 
 
+
 int inversionCount(vector<int>& arr) {
     return merge_sort(arr,0,arr.size()-1);
 }
