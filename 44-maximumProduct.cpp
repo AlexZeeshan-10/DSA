@@ -16,7 +16,27 @@ int maxProductBrute(vector<int> &arr)
     return maxi;
 }
 
+int maxProduct(vector<int> &arr)
+{
+    int maxi = arr[0];
+    int prefix = 1;
+    int suffix = 1;
+    int n = arr.size();
+    for (int i = 0; i < n; i++)
+    {
+        if (prefix == 0)
+            prefix = 1;
+        if (suffix == 0)
+            suffix = 1;
+        prefix *= arr[i];
+        suffix *= arr[n - i - 1];
+        maxi = max(maxi, max(prefix, suffix));
+    }
+    return maxi;
+}
+
 int main()
+
 {
     int n;
     cin >> n;
@@ -25,6 +45,5 @@ int main()
     {
         cin >> arr[i];
     }
-    int ans = maxProductBrute(arr);
-    cout << ans << " ";
+    
 }
