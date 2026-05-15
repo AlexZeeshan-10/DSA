@@ -45,5 +45,6 @@ int main()
     {
         cin >> arr[i];
     }
-    
+    int ans = maxProduct(arr);
+    cout << ans << " ";
 }
