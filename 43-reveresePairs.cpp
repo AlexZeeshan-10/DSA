@@ -2,6 +2,8 @@
 using namespace std;
 
 
+
+
 //Main function
 int main(){
     int n;
