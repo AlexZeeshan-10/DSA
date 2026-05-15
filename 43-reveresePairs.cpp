@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Brute method not recommended for large inputs
 int countPair(vector<int> &arr)
 {
     int ans = 0;
@@ -14,6 +15,8 @@ int countPair(vector<int> &arr)
     }
     return ans;
 }
+
+//Optimal approach requires merge alorithm Optimal code starts from here...
 void merge(vector<int> &arr, int l, int mid, int h){
     vector<int> temp;
     int left = l, right = mid+1;
