@@ -1,7 +1,13 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main(){
+int maxProduct(vector<int> &arr)
+{
+    
+}
+
+int main()
+{
     int n;
     cin >> n;
     vector<int> arr(n, 0);
@@ -9,5 +15,4 @@ int main(){
     {
         cin >> arr[i];
     }
-    
 }
