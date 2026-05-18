@@ -14,5 +14,8 @@ int main(){
     {
         cin >> arr[i];
     }
-    
+    int target;
+    cin >> target;
+    int ans = lowerBound(arr, target);
+    cout << ans << " ";
 }
