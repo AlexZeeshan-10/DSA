@@ -5,6 +5,10 @@ int lowerBound(vector<int> &arr, int target){
     
 }
 
+int lowerBound(vector<int> &arr, int target){
+    
+}
+
 
 int main(){
     int n;
