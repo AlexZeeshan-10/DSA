@@ -20,6 +20,7 @@ int lowerBound(vector<int> &arr, int target)
     return ans;
 }
 
+//upper bound
 int upperBound(vector<int> &arr, int target)
 {
     int low = 0, high = arr.size() - 1;
