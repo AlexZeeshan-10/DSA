@@ -1,13 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//Lower bound method
+// Lower bound method
 int lowerBound(vector<int> &arr, int target)
 {
-    
+    int low = 0, high = arr.size() - 1;
+    int ans = arr.size() + 1;
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] >= target)
+        {
+            ans = mid;
+            high = mid - 1;
+        }
+        else
+            low = mid + 1;
+    }
+    return ans;
 }
 
-//upper bound
+// upper bound
 int upperBound(vector<int> &arr, int target)
 {
     int low = 0, high = arr.size() - 1;
@@ -26,7 +39,7 @@ int upperBound(vector<int> &arr, int target)
     return ans;
 }
 
-//main function
+// main function
 int main()
 {
     int n;
