@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//Lower bound method
 int lowerBound(vector<int> &arr, int target)
 {
     int low = 0, high = arr.size() - 1;
