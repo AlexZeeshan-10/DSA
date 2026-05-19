@@ -4,20 +4,7 @@ using namespace std;
 //Lower bound method
 int lowerBound(vector<int> &arr, int target)
 {
-    int low = 0, high = arr.size() - 1;
-    int ans = arr.size() + 1;
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-        if (arr[mid] >= target)
-        {
-            ans = mid;
-            high = mid - 1;
-        }
-        else
-            low = mid + 1;
-    }
-    return ans;
+    
 }
 
 //upper bound
