@@ -49,7 +49,7 @@ int floor(vector<int> &arr, int target){
             ans = arr[mid];
             low = mid+1;
         }
-        else high = mid -1l
+        else high = mid -1;
     }
     return ans;
 }
