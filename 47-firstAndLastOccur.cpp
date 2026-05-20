@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-<<<<<<< HEAD
 //brute force method to find the first and last occurence in an array
 vector<int> occurBrute(vector<int> &arr, int target){
     int i = -1, j = -1;
@@ -14,7 +13,10 @@ vector<int> occurBrute(vector<int> &arr, int target){
     }
     return {i, j};
 }
-=======
+
+vector<int> occurOptimal(vector<int> &arr, int target){
+    
+}
 
 int main(){
     int n;
@@ -28,4 +30,3 @@ int main(){
     cin >> target;
 
 }
->>>>>>> feature-main
