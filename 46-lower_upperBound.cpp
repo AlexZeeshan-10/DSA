@@ -39,6 +39,21 @@ int upperBound(vector<int> &arr, int target)
     return ans;
 }
 
+int floor(vector<int> &arr, int target){
+    int ans = -1;
+    int low = 0, high = arr.size()-1;
+    while (low <= high)
+    {
+        int mid = (low + high)/2;
+        if(arr[mid] <= mid){
+            ans = arr[mid];
+            low = mid+1;
+        }
+        else high = mid -1l
+    }
+    return ans;
+}
+
 // main function
 int main()
 {
