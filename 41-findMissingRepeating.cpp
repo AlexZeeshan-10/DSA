@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 /*
@@ -13,20 +14,21 @@ void missingAndRepeatBrute(vector<int> &arr)
 {
     int repeat = -1;
     int missing = -1;
-    for (int i = 0; i < arr.size() - 1; i++)
+    int n = arr.size();
+    for (int i = 1; i <= n; i++)
     {
         int count = 0;
-        for (int j = 0; j < arr.size() - 1; j++)
+        for (int j = 0; j < n; j++)
         {
             if (arr[j] == i)
                 count++;
-            if (count == 2)
-                repeat = i;
-            else if (count == 0)
-                missing = i;
-            if (missing == -1 && repeat == -1)
-                break;
         }
+        if (count == 2)
+            repeat = i;
+        else if (count == 0)
+            missing = i;
+        if (missing != -1 && repeat != -1)
+            break;
     }
     cout << "Repeating and missing numbers are: " << repeat << ", " << missing;
 }
@@ -35,7 +37,7 @@ void missingAndRepeatBrute(vector<int> &arr)
 //better solution for finding missing and repeating
 void missingAndRepeatBtr(vector<int> &arr){
     int n = arr.size();
-    int hash[n+1] = {0};
+    vector<int> hash(n + 1, 0);
     int repeat = -1, missing = -1;
     for(int i=0; i<n; i++){
         hash[arr[i]]++;
