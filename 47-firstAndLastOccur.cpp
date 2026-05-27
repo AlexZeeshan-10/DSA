@@ -2,6 +2,7 @@
 #include <vector>
 using namespace std;
 
+
 // brute force method to find the first and last occurence in an array
 vector<int> occurBrute(vector<int> &arr, int target)
 {
@@ -17,6 +18,7 @@ vector<int> occurBrute(vector<int> &arr, int target)
     }
     return {i, j};
 }
+
 
 // Lower bound method: Finds the first index where the element is greater than or equal to the target
 int lowerBound(vector<int> &arr, int target)
@@ -39,6 +41,7 @@ int lowerBound(vector<int> &arr, int target)
     return ans;
 }
 
+
 // Upper bound method: Finds the first index where the element is strictly greater than the target
 int upperBound(vector<int> &arr, int target)
 {
@@ -60,6 +63,7 @@ int upperBound(vector<int> &arr, int target)
     return ans;
 }
 
+
 // Optimal approach using the lower_bound and upper_bound helper functions
 vector<int> occurOptimal(vector<int> &arr, int target)
 {
@@ -70,6 +74,7 @@ vector<int> occurOptimal(vector<int> &arr, int target)
     // The last occurrence is the index just before the upper bound
     return {lb, upperBound(arr, target) - 1};
 }
+
 
 // Function to find the first occurrence using binary search directly
 int occurOptimalfirst(vector<int> &arr, int target)
@@ -94,6 +99,7 @@ int occurOptimalfirst(vector<int> &arr, int target)
     return first;
 }
 
+
 // Function to find the last occurrence using binary search directly
 int occurOptimallast(vector<int> &arr, int target)
 {
@@ -117,6 +123,7 @@ int occurOptimallast(vector<int> &arr, int target)
     return last;
 }
 
+
 // Wrapper function to get both first and last occurrences
 pair<int, int> occurOptimal1(vector<int> &arr, int target){
     int first = occurOptimalfirst(arr, target);
@@ -125,6 +132,7 @@ pair<int, int> occurOptimal1(vector<int> &arr, int target){
     int last = occurOptimallast(arr, target);
     return {first, last};
 }
+
 
 int main()
 {
