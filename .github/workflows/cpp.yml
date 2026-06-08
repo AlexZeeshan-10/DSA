@@ -20,4 +20,4 @@ jobs:
       # This command finds all .cpp files and compiles them one by one.
       # If any file fails to compile, the workflow will fail.
       run: |
-        find . -name "*.cpp" -exec g++ -std=c++17 -Wall -Wextra {} -o /dev/null \;
+        find . -name "*.cpp" -exec g++ -std=c++17 -Wall -Wextra -fsyntax-only {} \;
