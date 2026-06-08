@@ -12,12 +12,35 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch full history for git diff
     
     - name: Check out compiler version
       run: g++ --version
-      
-    - name: Compile all C++ files
-      # This command finds all .cpp files and compiles them one by one.
-      # If any file fails to compile, the workflow will fail.
+    
+    - name: Detect changed C++ files
+      id: changed-files
+      run: |
+        if [ "${{ github.event_name }}" == "pull_request" ]; then
+          # For PRs, compare with base branch
+          CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} HEAD -- '*.cpp' '*.h' '*.hpp' | tr '\n' ' ')
+        else
+          # For pushes, compare with previous commit
+          CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT HEAD~1 HEAD -- '*.cpp' '*.h' '*.hpp' | tr '\n' ' ')
+        fi
+        echo "files=$CHANGED_FILES" >> $GITHUB_OUTPUT
+        echo "Changed files: $CHANGED_FILES"
+    
+    - name: Compile changed C++ files
+      if: steps.changed-files.outputs.files != ''
+      run: |
+        echo "Compiling: ${{ steps.changed-files.outputs.files }}"
+        for file in ${{ steps.changed-files.outputs.files }}; do
+          echo "Checking: $file"
+          g++ -std=c++17 -Wall -Wextra -fsyntax-only "$file"
+        done
+    
+    - name: Compile all files (full check on main push)
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.changed-files.outputs.files == ''
       run: |
         find . -name "*.cpp" -exec g++ -std=c++17 -Wall -Wextra -fsyntax-only {} \;
