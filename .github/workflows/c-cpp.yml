@@ -1,0 +1,23 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Check out compiler version
+      run: g++ --version
+      
+    - name: Compile all C++ files
+      # This command finds all .cpp files and compiles them one by one.
+      # If any file fails to compile, the workflow will fail.
+      run: |
+        find . -name "*.cpp" -exec g++ -std=c++17 -Wall -Wextra {} -o /dev/null \;
