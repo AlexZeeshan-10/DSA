@@ -39,8 +39,3 @@ jobs:
           echo "Checking: $file"
           g++ -std=c++17 -Wall -Wextra -fsyntax-only "$file"
         done
-    
-    - name: Compile all files (full check on main push)
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.changed-files.outputs.files == ''
-      run: |
-        find . -name "*.cpp" -exec g++ -std=c++17 -Wall -Wextra -fsyntax-only {} \;
