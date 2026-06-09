@@ -2,6 +2,7 @@
 #include <vector>
 
 
+
 int main(){
     int n;
     std::cin >> n;
@@ -9,4 +10,8 @@ int main(){
     for(int i = 0; i < n; i++){
         std::cin >> arr[i];
     }
+
+    int target;
+    std::cin >> target;
+    searchRotatedArray(arr, target);
 }
