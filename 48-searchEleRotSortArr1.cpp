@@ -1,7 +1,10 @@
 #include <iostream>
 #include <vector>
 
-
+int searchRotatedArray(std::vector<int> &arr, int target){
+    int low = 0, high = arr.size()-1;
+    if()
+}
 
 int main(){
     int n;
