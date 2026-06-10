@@ -1,7 +1,10 @@
 #include <iostream>
 #include <vector>
 
-
+int searchRotatedArray(std::vector<int> &arr, int target)
+{
+    
+}
 
 int main()
 {
@@ -14,5 +17,5 @@ int main()
     }
     int target;
     std::cin >> target;
-    bool ans = searchRotSort(arr, target);
+    bool ans = searchRotArr(arr, target);
 }
