@@ -46,5 +46,5 @@ int main()
     int target;
     std::cin >> target;
     bool ans = searchRotArr(arr, target);
-    cout << ans << std::endl;
+    std::cout << ans << std::endl;
 }
