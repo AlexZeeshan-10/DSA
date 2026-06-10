@@ -1,7 +1,27 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <algorithm>
 
-int main(){
+int search(std::vector<int> arr, int target)
+{
+    int low = 0, high = arr.size()-1, ans = INT_MAX;
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if(arr[low] <= arr[mid]){
+            ans = std::min(ans, arr[low]);
+            low += 1;
+        }
+        else {
+            
+        }
+    }
+    
+}
+
+int main()
+{
     int n;
     std::cin >> n;
     std::vector<int> arr(n);
@@ -11,5 +31,5 @@ int main(){
     }
     int target;
     std::cin >> target;
-    int ans = search(arr, target;
+    int ans = search(arr, target);
 }
