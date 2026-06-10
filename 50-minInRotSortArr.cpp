@@ -9,5 +9,7 @@ int main(){
     {
         std::cin >> arr[i];
     }
-    
+    int target;
+    std::cin >> target;
+    int ans = search(arr, target;
 }
