@@ -12,4 +12,7 @@ int main()
     {
         std::cin >> arr[i];
     }
+    int target;
+    std::cin >> target;
+    bool ans = searchRotSort(arr, target);
 }
