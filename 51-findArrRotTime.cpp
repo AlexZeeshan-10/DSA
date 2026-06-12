@@ -9,5 +9,5 @@ int main(){
     {
         std::cin >> arr[i];
     }
-    
+    int ans = timeArrRot(arr);
 }
