@@ -18,6 +18,10 @@ int bruteFindEle(std::vector<int> &arr)
     return -1;
 }
 
+int optFindEle(std::vector<int> &arr){
+    
+}
+
 int main()
 {
     int n;
