@@ -34,6 +34,7 @@ bool searchRotArr(std::vector<int> &arr, int target)
         return false;
 }
 
+// main function
 int main()
 {
     int n;
