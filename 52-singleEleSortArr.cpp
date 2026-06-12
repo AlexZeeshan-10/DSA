@@ -1,7 +1,11 @@
 #include <iostream>
 #include <vector>
 
-
+int bruteFindEle(std::vector<int> &arr){
+    int n = arr.size();
+    
+        return -1;
+}
 
 int main(){
     int n;
@@ -12,4 +16,5 @@ int main(){
         std::cin >> arr[i];
     }
     int ans = bruteFindEle(arr);
+    std::cout << ans;
 }
