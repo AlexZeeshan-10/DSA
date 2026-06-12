@@ -1,6 +1,10 @@
 #include <iostream>
 #include <vector>
 
+timesArrRot(std::vector<int> &arr){
+    
+}
+
 int main(){
     int n;
     std::cin >> n;
