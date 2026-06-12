@@ -32,4 +32,5 @@ int main()
     }
     
     int ans = search(arr);
+    std::cout << ans;
 }
