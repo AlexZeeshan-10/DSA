@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 
+
+// time complexity O(2n) ~ O(n) But this code is more readable and easy
 int findPeakElementBrute1(std::vector<int> &arr)
 {
     int maxi = arr[0];
@@ -17,6 +19,8 @@ int findPeakElementBrute1(std::vector<int> &arr)
     return -1;
 }
 
+
+// Less time complexity but the readablity is complex
 int findPeakElementBrute2(std::vector<int> &arr)
 {
     int n = arr.size();
