@@ -1,7 +1,13 @@
 #include <iostream>
 #include <vector>
 
-int main(){
+int findPeakElement(std::vector<int> &arr)
+{
+    
+}
+
+int main()
+{
     int n;
     std::cin >> n;
     std::vector<int> arr(n);
@@ -9,4 +15,6 @@ int main(){
     {
         std::cin >> arr[i];
     }
+    int ans = findPeakElement(arr);
+    std::cout << ans << std::endl;
 }
