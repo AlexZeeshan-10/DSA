@@ -1,7 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
-int findPeakElement(std::vector<int> &arr)
+int findPeakElementBrute1(std::vector<int>& arr) {
+        
+    }
+
+int findPeakElementBrute2(std::vector<int> &arr)
 {
     int n = arr.size();
     /* This solution would require just one iteration.
@@ -24,6 +29,6 @@ int main()
     {
         std::cin >> arr[i];
     }
-    int ans = findPeakElement(arr);
+    int ans = findPeakElementBrute1(arr);
     std::cout << ans << std::endl;
 }
