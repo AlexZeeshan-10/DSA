@@ -2,9 +2,20 @@
 #include <vector>
 #include <algorithm>
 
-int findPeakElementBrute1(std::vector<int>& arr) {
-        
+int findPeakElementBrute1(std::vector<int> &arr)
+{
+    int maxi = arr[0];
+    for (int i = 0; i < arr.size(); i++)
+    {
+        maxi = std::max(maxi, arr[i]);
     }
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == maxi)
+            return i;
+    }
+    return -1;
+}
 
 int findPeakElementBrute2(std::vector<int> &arr)
 {
