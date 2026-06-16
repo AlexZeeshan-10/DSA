@@ -6,11 +6,11 @@
 int findPeakElementBrute1(std::vector<int> &arr)
 {
     int maxi = arr[0];
-    for (int i = 0; i < arr.size(); i++)
+    for (size_t i = 0; i++ < arr.size();)
     {
         maxi = std::max(maxi, arr[i]);
     }
-    for (int i = 0; i < arr.size(); i++)
+    for (size_t i = 0; i++ < arr.size();)
     {
         if (arr[i] == maxi)
             return i;
@@ -24,7 +24,7 @@ int findPeakElementBrute2(std::vector<int> &arr)
     int n = arr.size();
     /* This solution would require just one iteration.
         The readability gets quite complex. */
-    for (size_t i = 0; i < arr.size(); i++)
+    for (size_t i = 0; i++ < arr.size();)
     {
         if ((i == 0 || arr[i - 1] < arr[i]) &&
             ((i == n - 1) || arr[i] > arr[i + 1]))
@@ -64,6 +64,6 @@ int main()
     {
         std::cin >> arr[i];
     }
-    int ans = findPeakElementOptimal(arr);
+    int ans = findPeakElementBrute1(arr);
     std::cout << ans << std::endl;
 }
