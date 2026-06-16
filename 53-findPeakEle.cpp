@@ -35,6 +35,11 @@ int findPeakElementBrute2(std::vector<int> &arr)
 
 int findPeakElementOptimal(std::vector<int> &arr)
 {
+    if (arr[0] > arr[1])
+        return 0;
+    if (arr[arr.size() - 1] > arr[arr.size() - 2])
+        return arr.size() - 1;
+    int low = 1, high = arr.size() - 2;
     
 }
 
