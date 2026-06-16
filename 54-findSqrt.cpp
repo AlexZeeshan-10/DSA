@@ -3,7 +3,9 @@
 #include <climits>
 #include <algorithm>
 
-
+int sqrtFunction(int x){
+    
+}
 
 int main(){
     int x;
