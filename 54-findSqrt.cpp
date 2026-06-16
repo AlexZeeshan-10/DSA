@@ -8,5 +8,5 @@
 int main(){
     int x;
     std::cin >> x;
-    int ans = sqrtLinear(x);
+    int ans = sqrtBS(x);
 }
