@@ -33,6 +33,7 @@ int findPeakElementBrute2(std::vector<int> &arr)
     return -1;
 }
 
+
 int main()
 {
     int n;
