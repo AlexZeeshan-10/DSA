@@ -46,4 +46,5 @@ int main()
     int x;
     std::cin >> x;
     int ans = sqrtBS(x);
+    std::cout << ans << std::endl;
 }
