@@ -1,6 +1,10 @@
 #include <iostream>
 #include <algorithm>
 
+int rootBrute(int n){
+    
+}
+
 int main()
 {
     int n;
