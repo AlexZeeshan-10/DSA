@@ -7,7 +7,7 @@ long long mul(int i, int n, int m)
     for (int j = 1; j <= n; j++)
     {
         ans *= i;
-        if (ans > m) return ans; // Break early to prevent integer overflow!
+        if (ans > m) return ans; // Break early to prevent integer overflow
     }
     return ans;
 }
