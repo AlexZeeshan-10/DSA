@@ -28,7 +28,21 @@ int rootBrute(int m, int n)
 
 int rootBS(int m, int n)
 {
-    
+    int low = 1, high = m;
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        long long val = mul(mid, n, m);
+        if (val == m)
+            return mid;
+        else if (val < m)
+        {
+            low = mid + 1;
+        }
+        else
+            high = mid - 1;
+    }
+    return -1;
 }
 
 int main()
