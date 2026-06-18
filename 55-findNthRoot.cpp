@@ -25,6 +25,12 @@ int rootBrute(int m, int n)
     return -1;
 }
 
+
+int rootBS(int m, int n)
+{
+    
+}
+
 int main()
 {
     int m, n;
