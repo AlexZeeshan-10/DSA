@@ -2,7 +2,7 @@
 #include <algorithm>
 
 int rootBrute(int n){
-    
+    int ans = -1;
 }
 
 int main()
