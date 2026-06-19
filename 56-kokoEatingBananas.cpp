@@ -9,5 +9,8 @@ int main(){
     {
         std::cin >> arr[i];
     }
-    int ans;
+    int deadLine;
+    std::cin >> deadLine;
+    int ans(arr, deadLine);
+    std::cout << ans << std::endl;
 }
