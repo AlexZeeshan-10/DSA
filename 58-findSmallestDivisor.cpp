@@ -1,5 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <climits>
+#include <algorithm>
+#include <cmath>
+
+
 
 int main(){
   int n;
@@ -12,4 +17,5 @@ int main(){
     int threshold;
     std::cin >> threshold;
     int ans = smallestDivisor(arr, threshold);
+    std::cout << ans << std::endl;
 }
