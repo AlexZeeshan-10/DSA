@@ -31,6 +31,11 @@ int smallestDivisorBrute(std::vector<int> &arr, int t){
     return -1;
 }
 
+int smallestDivisorBS(std::vector<int> &arr, int t){
+    int low = 1, high = findMax(arr);
+    
+}
+
 
 int main(){
   int n;
