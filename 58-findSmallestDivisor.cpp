@@ -23,7 +23,7 @@ int checkDivisor(std::vector<int> &arr, int i){
 }
 
 // Main function to determine the smallest divisor in the array 
-int smallestDivisor(std::vector<int> &arr, int t){
+int smallestDivisorBrute(std::vector<int> &arr, int t){
     for(size_t i = 1; i < findMax(arr); ++i){
         if(checkDivisor(arr, i) < t) 
           return i;
@@ -41,6 +41,6 @@ int main(){
     }
     int threshold;
     std::cin >> threshold;
-    int ans = smallestDivisor(arr, threshold);
+    int ans = smallestDivisorBrute(arr, threshold);
     std::cout << ans << std::endl;
 }
