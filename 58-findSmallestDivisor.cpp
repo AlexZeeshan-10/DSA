@@ -4,6 +4,15 @@
 #include <algorithm>
 #include <cmath>
 
+// To find max in the array
+int findMax(std::vector<int> &arr){
+    int maxi = INT_MIN;
+    for(auto it:arr){
+        maxi = std::max(maxi, it);
+    }
+    return maxi;
+}
+
 
 
 // Main function to determine the smallest divisor in the array
