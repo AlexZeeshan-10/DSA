@@ -6,6 +6,15 @@
 
 
 
+// Main function to determine the smallest divisor in the array
+int smallestDivisor(std::vector<int> &arr, int t){
+    for(size_t i = 1; i < findMax(arr); ++i){
+        if(checkDivisor(arr, i) < t) 
+          return i;
+    }
+    return -1;
+}
+
 int main(){
   int n;
     std::cin >> n;
