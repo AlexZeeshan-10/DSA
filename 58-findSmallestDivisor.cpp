@@ -13,7 +13,14 @@ int findMax(std::vector<int> &arr){
     return maxi;
 }
 
-
+// To perform the division and return the summation
+int checkDivisor(std::vector<int> &arr, int i){
+    int count = 0;
+    for(auto it:arr){
+        count += std::ceil((double)it / double(i));
+    }
+    return count;
+}
 
 // Main function to determine the smallest divisor in the array
 int smallestDivisor(std::vector<int> &arr, int t){
