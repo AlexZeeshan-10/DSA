@@ -9,4 +9,7 @@ int main(){
     {
         std::cin >> arr[i];
     }
+    int threshold;
+    std::cin >> threshold;
+    int ans = smallestDivisor(arr, threshold);
 }
