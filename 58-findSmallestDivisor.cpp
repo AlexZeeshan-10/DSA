@@ -22,7 +22,7 @@ int checkDivisor(std::vector<int> &arr, int i){
     return count;
 }
 
-// Main function to determine the smallest divisor in the array 
+// Brute force approach to determine the smallest divisor in the array 
 int smallestDivisorBrute(std::vector<int> &arr, int t){
     for(size_t i = 1; i < findMax(arr); ++i){
         if(checkDivisor(arr, i) <= t) 
@@ -31,6 +31,7 @@ int smallestDivisorBrute(std::vector<int> &arr, int t){
     return -1;
 }
 
+// Binary Search approach to determine the smallest divisor in the array 
 int smallestDivisorBS(std::vector<int> &arr, int t){
     int low = 1, high = findMax(arr);
     while(low <= high){
