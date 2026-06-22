@@ -12,21 +12,44 @@ int findMax(std::vector<int> &arr)
     return maxi;
 }
 
-int sumOfArr(std::vector<int> &arr){
+int sumOfArr(std::vector<int> &arr)
+{
     int sum = 0;
-    for(int it:arr){
+    for (int it : arr)
+    {
         sum += it;
     }
     return sum;
 }
 
+int shippingDays(std::vector<int> &arr, int capacity)
+{
+    int days = 1;
+    int load = 0;
+
+    for (int weight : arr)
+    {
+        if (load + weight > capacity)
+        {
+            days++;
+            load = weight;
+        }
+        else
+        {
+            load += weight;
+        }
+    }
+    return days;
+}
+
 int shipWithinDays(std::vector<int> &arr, int days)
 {
-    for (int i = findMax(arr); i < sumOfArr(arr); i++)
+    for (int capacity = findMax(arr); capacity <= sumOfArr(arr); capacity++)
     {
-        if (shippingDays(arr, i) <= days)
-            return i;
+        if (shippingDays(arr, capacity) <= days)
+            return capacity;
     }
+    return -1;
 }
 
 int main()
