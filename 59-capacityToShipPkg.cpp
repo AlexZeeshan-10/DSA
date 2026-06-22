@@ -9,5 +9,8 @@ int main(){
     {
         std::cin >> arr[i];
     }
-    
+    int days;
+    std::cin >> days;
+    int ans = shipWithinDays(arr, days);
+    std::cout << ans << std::endl;
 }
