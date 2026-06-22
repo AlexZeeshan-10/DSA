@@ -1,6 +1,10 @@
 #include <iostream>
 #include <vector>
 
+int shipWithinDays(std::vector<int> &arr, int days){
+    
+}
+
 int main(){
     int n;
     std::cin >> n;
