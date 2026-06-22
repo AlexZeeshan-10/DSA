@@ -1,11 +1,28 @@
 #include <iostream>
 #include <vector>
 
-int shipWithinDays(std::vector<int> &arr, int days){
-    
+int findMax(std::vector<int> &arr)
+{
+    int maxi = 0;
+    for (int it : arr)
+    {
+        if (it > maxi)
+            maxi = it;
+    }
+    return maxi;
 }
 
-int main(){
+int shipWithinDays(std::vector<int> &arr, int days)
+{
+    for (int i = findMax(arr); i < sumOfArr(arr); i++)
+    {
+        if (shippingDays(arr, i) <= days)
+            return i;
+    }
+}
+
+int main()
+{
     int n;
     std::cin >> n;
     std::vector<int> arr(n);
