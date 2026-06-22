@@ -12,6 +12,14 @@ int findMax(std::vector<int> &arr)
     return maxi;
 }
 
+int sumOfArr(std::vector<int> &arr){
+    int sum = 0;
+    for(int it:arr){
+        sum += it;
+    }
+    return sum;
+}
+
 int shipWithinDays(std::vector<int> &arr, int days)
 {
     for (int i = findMax(arr); i < sumOfArr(arr); i++)
