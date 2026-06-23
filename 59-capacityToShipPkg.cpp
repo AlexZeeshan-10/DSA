@@ -52,6 +52,16 @@ int shipWithinDays(std::vector<int> &arr, int days)
     return -1;
 }
 
+int shipWithinDaysBS(std::vector<int> &arr, int days){
+    int low = findMax(arr), high = sumOfArr(arr);
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        
+    }
+    
+}
+
 int main()
 {
     int n;
