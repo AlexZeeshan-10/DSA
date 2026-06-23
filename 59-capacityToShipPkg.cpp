@@ -57,9 +57,12 @@ int shipWithinDaysBS(std::vector<int> &arr, int days){
     while (low <= high)
     {
         int mid = low + (high - low) / 2;
-        
-    }
-    
+        if(shippingDays(arr, mid) <= days)
+            high = mid - 1;
+        else 
+            low = mid + 1;
+        }
+    return low;
 }
 
 int main()
@@ -73,6 +76,6 @@ int main()
     }
     int days;
     std::cin >> days;
-    int ans = shipWithinDays(arr, days);
+    int ans = shipWithinDaysBS(arr, days);
     std::cout << ans << std::endl;
 }
