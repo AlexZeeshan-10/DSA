@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+// Find the max in the array to provide an initial iteration point
 int findMax(std::vector<int> &arr)
 {
     int maxi = 0;
@@ -12,6 +13,7 @@ int findMax(std::vector<int> &arr)
     return maxi;
 }
 
+// Provides the sum of all elements to define a constraint for iteration
 int sumOfArr(std::vector<int> &arr)
 {
     int sum = 0;
@@ -22,6 +24,7 @@ int sumOfArr(std::vector<int> &arr)
     return sum;
 }
 
+// Helps calculating number of days each capacity of the ship would take
 int shippingDays(std::vector<int> &arr, int capacity)
 {
     int days = 1;
@@ -42,7 +45,8 @@ int shippingDays(std::vector<int> &arr, int capacity)
     return days;
 }
 
-int shipWithinDays(std::vector<int> &arr, int days)
+// Brute approach to find the max capacity of the ship that would help shipping the packages within the given days... It throws a Time Limit Exceeded case in large inputs so it's better to use Binary Search approach
+int shipWithinDaysBrute(std::vector<int> &arr, int days)
 {
     for (int capacity = findMax(arr); capacity <= sumOfArr(arr); capacity++)
     {
@@ -52,6 +56,7 @@ int shipWithinDays(std::vector<int> &arr, int days)
     return -1;
 }
 
+// Binary search approach to find the max capacity of the ship that would help shipping the packages within the given days...
 int shipWithinDaysBS(std::vector<int> &arr, int days){
     int low = findMax(arr), high = sumOfArr(arr);
     while (low <= high)
