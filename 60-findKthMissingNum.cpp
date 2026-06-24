@@ -1,6 +1,10 @@
 #include <iostream>
 #include <vector>
 
+int findKthNum(std::vector<int> &arr, int k){
+    
+}
+
 int main(){
     int n;
     std::cin >> n;
