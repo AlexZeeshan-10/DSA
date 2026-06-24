@@ -1,6 +1,10 @@
 #include <iostream>
 #include <vector>
 
+int maxDistanceBrute(std::vector<int> &arr, int cows){
+    
+}
+
 int main()
 {
     int n;
