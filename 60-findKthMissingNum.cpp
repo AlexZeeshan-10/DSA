@@ -1,6 +1,16 @@
 #include <iostream>
 #include <vector>
 
+int findKthNum(std::vector<int> &arr, int k){
+    for (size_t i = 0; i < arr.size(); i++) {
+            if (arr[i] <= k)
+                k++;
+            else
+                break;
+        }
+        return k;
+}
+
 int main(){
     int n;
     std::cin >> n;
