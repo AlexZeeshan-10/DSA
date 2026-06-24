@@ -33,6 +33,11 @@ int maxDistanceBrute(std::vector<int> &arr, int cows)
     return -1;
 }
 
+int maxDistanceBS(std::vector<int> &arr, int cows)
+{
+    
+}
+
 int main()
 {
     int n;
