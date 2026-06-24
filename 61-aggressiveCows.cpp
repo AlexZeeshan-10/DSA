@@ -11,4 +11,8 @@ int main()
         std::cin >> arr[i];
     }
     
+    int cows;
+    std::cin >> cows;
+    int ans = maxDistanceBrute(arr, cows);
+    std::cout << ans << std::endl;
 }
