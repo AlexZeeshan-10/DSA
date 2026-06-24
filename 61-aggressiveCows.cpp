@@ -41,7 +41,7 @@ int maxDistanceBS(std::vector<int> &arr, int cows)
     {
         int mid = low + (high - low) / 2;
         if (canWePlace(arr, mid, cows) == true)
-            low = mid + 2;
+            low = mid + 1;
         else
             high = mid - 1;
     }
