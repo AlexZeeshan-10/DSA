@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int findKthNum(std::vector<int> &arr, int k){
+int findKthNumBrute(std::vector<int> &arr, int k){
     for (size_t i = 0; i < arr.size(); i++) {
             if (arr[i] <= k)
                 k++;
@@ -11,7 +11,23 @@ int findKthNum(std::vector<int> &arr, int k){
         return k;
 }
 
-int main(){
+int findKthNumBS(std::vector<int> &arr, int k)
+{
+    int low = 0, high = arr.size() - 1;
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        int missing = arr[mid] - (mid + 1);
+        if (missing < k)
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+    return low + k;
+}
+
+int main()
+{
     int n;
     std::cin >> n;
     std::vector<int> arr(n);
@@ -20,10 +36,10 @@ int main(){
     {
         std::cin >> arr[i];
     }
-    
+
     int k;
     std::cin >> k;
 
-    int ans = findKthNum(arr, k);
+    int ans = findKthNumBS(arr, k);
     std::cout << ans << std::endl;
 }
