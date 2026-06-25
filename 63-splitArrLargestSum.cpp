@@ -71,4 +71,7 @@ int main()
     }
 
     int k;
+    std::cin >> k;
+    int ans = splitArrayBS(arr, k);
+    std::cout << ans << std::endl;
 }
