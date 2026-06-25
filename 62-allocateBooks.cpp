@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <numeric>
 
+// Helper function to count students required for a given page capacity.
 int cntStudent(std::vector<int> &arr, int pages){
     int students = 1;
     long long pagesStudent = 0;
@@ -21,6 +22,7 @@ int cntStudent(std::vector<int> &arr, int pages){
     return students;
 }
 
+// Brute-force: Linearly searches for the minimum possible maximum pages.
 int findPagesBrute(std::vector<int> &arr, int student)
 {
     if (arr.size() < student)
@@ -37,7 +39,11 @@ int findPagesBrute(std::vector<int> &arr, int student)
     return -1;
 }
 
+// Optimal: Finds the minimum possible maximum pages using Binary Search.
 int findPagesBS(std::vector<int> &arr, int student){
+    if (arr.size() < student)
+        return -1;
+
     int low = *std::max_element(arr.begin(), arr.end());
     int high = std::accumulate(arr.begin(), arr.end(), 0);
     while (low <= high)
@@ -48,7 +54,7 @@ int findPagesBS(std::vector<int> &arr, int student){
         else
             low = mid + 1;
     }
-    return high + 1;
+    return low;
 }
 
 int main()
