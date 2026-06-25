@@ -1,6 +1,12 @@
 #include <iostream>
 #include <vector>
 
+int findPagesBrute(std::vector<int> &arr, int student)
+{
+    if (arr.size() < student)
+        return -1;
+}
+
 int main()
 {
     int n;
