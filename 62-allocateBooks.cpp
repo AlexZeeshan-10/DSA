@@ -37,6 +37,20 @@ int findPagesBrute(std::vector<int> &arr, int student)
     return -1;
 }
 
+int findPagesBS(std::vector<int> &arr, int student){
+    int low = *std::max_element(arr.begin(), arr.end());
+    int high = std::accumulate(arr.begin(), arr.end(), 0);
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if(cntStudent(arr, mid) <= student)
+            high = mid - 1;
+        else
+            low = mid + 1;
+    }
+    return high + 1;
+}
+
 int main()
 {
     int n;
@@ -48,6 +62,6 @@ int main()
     }
     int student;
     std::cin >> student;
-    int ans = findPagesBrute(arr, student);
+    int ans = findPagesBS(arr, student);
     std::cout << ans << std::endl;
 }
