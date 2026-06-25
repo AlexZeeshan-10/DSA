@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 
-int main(){
+int main()
+{
     int n;
     std::cin >> n;
     std::vector<int> arr(n);
@@ -9,4 +10,8 @@ int main(){
     {
         std::cin >> arr[i];
     }
+    int student;
+    std::cin >> student;
+    int ans = findPagesBrute(arr, student);
+    std::cout << ans << std::endl;
 }
