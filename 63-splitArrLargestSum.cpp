@@ -26,19 +26,21 @@ int requiredSubarrays(std::vector<int> &nums, int maxAllowedSum)
     return subarrayCount;
 }
 
-int splitArrayBrute(std::vector<int> &arr, int k) {
-        if (arr.size() < k)
-            return -1;
-
-        int low = *std::max_element(arr.begin(), arr.end());
-        int high = std::accumulate(arr.begin(), arr.end(), 0);
-        for (int i = low; i <= high; i++) {
-            int sumNeeded = requiredSubarrays(arr, i);
-            if (sumNeeded <= k)
-                return i;
-        }
+int splitArrayBrute(std::vector<int> &arr, int k)
+{
+    if (arr.size() < k)
         return -1;
+
+    int low = *std::max_element(arr.begin(), arr.end());
+    int high = std::accumulate(arr.begin(), arr.end(), 0);
+    for (int i = low; i <= high; i++)
+    {
+        int sumNeeded = requiredSubarrays(arr, i);
+        if (sumNeeded <= k)
+            return i;
     }
+    return -1;
+}
 
 int splitArrayBS(std::vector<int> &nums, int k)
 {
