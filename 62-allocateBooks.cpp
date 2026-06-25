@@ -3,7 +3,23 @@
 #include <algorithm>
 #include <numeric>
 
-
+int cntStudent(std::vector<int> &arr, int pages){
+    int students = 1;
+    long long pagesStudent = 0;
+    for (size_t i = 0; i < arr.size(); i++)
+    {
+        if(pagesStudent + arr[i] <= pages)
+        {
+            pagesStudent += arr[i];
+        }
+        else
+        {
+            students++;
+            pagesStudent = arr[i];
+        }
+    }
+    return students;
+}
 
 int findPagesBrute(std::vector<int> &arr, int student)
 {
