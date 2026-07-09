@@ -13,5 +13,6 @@ int main(){
     int k;
     std::cin >> k;
 
-    
+    int ans = minimizeMaxDistanceBrute(arr, k);
+    std::cout << ans << std::endl;
 }
