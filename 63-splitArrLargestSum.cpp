@@ -3,8 +3,7 @@
 #include <numeric>
 #include <vector>
 
-// Returns the number of subarrays required if the maximum
-// allowed subarray sum is maxAllowedSum.
+// Helper function: Counts subarrays needed for a given max sum limit.
 int requiredSubarrays(std::vector<int> &nums, int maxAllowedSum)
 {
     int subarrayCount = 1;
@@ -26,6 +25,7 @@ int requiredSubarrays(std::vector<int> &nums, int maxAllowedSum)
     return subarrayCount;
 }
 
+// Brute-force: Linearly checks every possible max sum from low to high.
 int splitArrayBrute(std::vector<int> &arr, int k)
 {
     if (arr.size() < k)
@@ -42,23 +42,28 @@ int splitArrayBrute(std::vector<int> &arr, int k)
     return -1;
 }
 
+// Optimal: Uses binary search to find the minimum largest subarray sum.
 int splitArrayBS(std::vector<int> &nums, int k)
 {
     if (nums.size() < k)
         return -1;
 
+    // The answer must lie between the largest element and the sum of all elements.
     int low = *std::max_element(nums.begin(), nums.end());
     int high = std::accumulate(nums.begin(), nums.end(), 0);
 
     while (low <= high)
     {
         int mid = low + (high - low) / 2;
+        // If 'mid' is a possible answer, try for an even smaller sum.
         if (requiredSubarrays(nums, mid) <= k)
             high = mid - 1;
+        // If 'mid' is too small, we need to allow a larger sum.
         else
             low = mid + 1;
     }
-    return high + 1;
+    // 'low' will be the minimum possible largest sum.
+    return low;
 }
 
 int main()
