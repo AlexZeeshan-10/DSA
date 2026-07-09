@@ -1,6 +1,10 @@
 #include <iostream>
 #include <vector>
 
+double minimiseMaxDistanceBrute(std::vector<int> &arr, int k){
+
+}
+
 int main(){
     int n;
     std::cin >> n;
@@ -13,6 +17,6 @@ int main(){
     int k;
     std::cin >> k;
 
-    int ans = minimizeMaxDistanceBrute(arr, k);
+    int ans = minimiseMaxDistanceBrute(arr, k);
     std::cout << ans << std::endl;
 }
