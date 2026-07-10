@@ -1,6 +1,10 @@
 #include <iostream>
 #include <vector>
 
+double medianBS(std::vector<int> &arr1, std::vector<int> &arr2){
+    
+}
+
 int main(){
     int n1;
     std::cin >> n1;
@@ -18,6 +22,6 @@ int main(){
         std::cin >> arr2[i];
     }
     
-    double ans = median(arr1, arr2);
+    double ans = medianBS(arr1, arr2);
     std::cout << ans << std::endl;
 }
