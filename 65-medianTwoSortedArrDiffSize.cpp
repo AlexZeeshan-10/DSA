@@ -20,6 +20,10 @@ double medianBrute(std::vector<int> &arr1, std::vector<int> &arr2){
     return (n%2 == 1) ? ans[n / 2] : (double)((double) (ans[n/2]) + (double) (ans[n/2 - 1])) / 2.0;
 }
 
+// Better brute-force approach using O(1) space
+double medianBetter(std::vector<int> &arr1, std::vector<int> &arr2){
+    
+}
 
 int main(){
     int n1;
