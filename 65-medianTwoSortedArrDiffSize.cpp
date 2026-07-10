@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-double median(std::vector<int> &arr1, std::vector<int> &arr2){
+double medianBrute(std::vector<int> &arr1, std::vector<int> &arr2){
     int i = 0, j = 0;
     std::vector<int> ans;
     while (i < arr1.size() && j < arr2.size())
@@ -37,6 +37,6 @@ int main(){
         std::cin >> arr2[i];
     }
     
-    double ans = median(arr1, arr2);
+    double ans = medianBrute(arr1, arr2);
     std::cout << ans << std::endl;
 }
