@@ -5,7 +5,20 @@
 
 
 long double minimizeMaxDistanceBS(std::vector<int> &arr, int k){
+    long double low = 0, high = 0;
+    for (size_t i = 0; i < arr.size()-1; i++)
+    {
+        high = max(high,(long double)(arr[i+1] - arr[i]));
+    }
     
+    long double diff = 1e - 6;
+    while (high - low > diff)
+    {
+        long double mid = (low + (high - low)) / (2.0);
+        int cnt = numberOfGasStationsRequired(mid, arr);
+        (cnt > k) ? low = mid : high = mid;
+    }
+    return high;
 }
 
 int main(){
