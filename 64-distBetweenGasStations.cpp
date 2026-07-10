@@ -1,8 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <queue>
 
-double minimiseMaxDistanceBrute(std::vector<int> &arr, int k){
+double minimiseMaxDistanceBrute(std::vector<int> &arr, int k)
+{
     std::vector<int> howMany(arr.size() - 1, 0);
     // Loop k times to place k gas stations one by one.
     for (int gasStations = 1; gasStations <= k; gasStations++)
@@ -28,14 +30,20 @@ double minimiseMaxDistanceBrute(std::vector<int> &arr, int k){
     long double maxAns = -1;
     for (size_t i = 0; i < arr.size() - 1; i++)
     {
-        long double diff = (arr[i+1] - arr[i]);
-        long double sectionLength = diff / (long double) (howMany[i] + 1);
+        long double diff = (arr[i + 1] - arr[i]);
+        long double sectionLength = diff / (long double)(howMany[i] + 1);
         maxAns = std::max(maxAns, sectionLength);
     }
     return maxAns;
 }
 
-int main(){
+double minimiseMaxDistanceBetter(std::vector<int> &arr, int k)
+{
+    
+}
+
+int main()
+{
     int n;
     std::cin >> n;
     std::vector<int> arr(n);
@@ -43,7 +51,7 @@ int main(){
     {
         std::cin >> arr[i];
     }
-    
+
     int k;
     std::cin >> k;
 
