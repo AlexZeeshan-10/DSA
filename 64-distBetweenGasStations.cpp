@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <algorithm> // Required for std::max
 
 // Helper function: How many new gas stations are needed for a given max distance 'dist'?
 int numberOfGasStationsRequired(long double dist, std::vector<int> &arr){
