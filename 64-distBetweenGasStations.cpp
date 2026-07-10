@@ -2,7 +2,15 @@
 #include <vector>
 #include <cmath>
 
-
+int numberOfGasStationsRequired(long double dist, std::vector<int> &arr){
+    int cnt = 0;
+    for (size_t i = 1; i < arr.size(); i++)
+    {
+        int numberInBetween = (arr[i] - arr[i - 1] / dist);
+        cnt += floor((arr[i] - arr[i-1]) / dist);
+    }
+    return cnt;
+}
 
 long double minimizeMaxDistanceBS(std::vector<int> &arr, int k){
     long double low = 0, high = 0;
