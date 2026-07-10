@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+
 int main(){
     int n1;
     std::cin >> n1;
