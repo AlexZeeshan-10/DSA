@@ -35,18 +35,33 @@ double medianBetter(std::vector<int> &arr1, std::vector<int> &arr2)
     int i = 0, j = 0;
     while (i < n1 && j < n2)
     {
-        int current_el = (arr1[i] < arr2[j]) ? arr1[i++] : arr2[j++];
+        int current_el;
+        if (arr1[i] < arr2[j]) {
+            current_el = arr1[i++];
+        } else {
+            current_el = arr2[j++];
+        }
         if (cnt == ind1)
             el1 = current_el;
         if (cnt == ind2)
             el2 = current_el;
         cnt++;
     }
+    // If arr2 is exhausted, continue with arr1
     while (i < n1)
-    { /* handle remaining elements */
+    {
+        int current_el = arr1[i++];
+        if (cnt == ind1) el1 = current_el;
+        if (cnt == ind2) el2 = current_el;
+        cnt++;
     }
+    // If arr1 is exhausted, continue with arr2
     while (j < n2)
-    { /* handle remaining elements */
+    {
+        int current_el = arr2[j++];
+        if (cnt == ind1) el1 = current_el;
+        if (cnt == ind2) el2 = current_el;
+        cnt++;
     }
 
     if (n % 2 == 1)
