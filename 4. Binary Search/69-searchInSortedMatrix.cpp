@@ -1,6 +1,10 @@
 #include <iostream>
 #include <vector>
 
+bool searchMatrixBrute(std::vector<std::vector<int>>, int target){
+    
+}
+
 int main(){
     int row, column;
     std::cin >> row;
