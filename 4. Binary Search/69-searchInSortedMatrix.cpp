@@ -1,8 +1,15 @@
 #include <iostream>
 #include <vector>
 
-bool searchMatrixBS(std::vector<std::vector<int>>, int target){
-    
+bool searchMatrixBS(std::vector<std::vector<int>> &matrix, int target){
+    int n = matrix.size();
+    int m = matrix[0].size();
+    for(size_t i = 0; i<matrix.size(); ++i){
+            if(matrix[i][0] <= target && matrix[i][m-1]){
+                return binarySearch(matrix[i], target);
+            }
+        }
+        return false;
 }
 
 int main(){
