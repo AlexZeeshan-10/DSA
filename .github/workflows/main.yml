@@ -19,12 +19,9 @@ jobs:
 
     - name: Compile all C++ files
       run: |
-        # This script finds every .cpp file in your repository,
-        # no matter which folder it's in.
+        # This script finds every .cpp file and compiles it.
         find . -type f -name "*.cpp" | while read -r file; do
-          # It then compiles each file into a separate executable.
-          # The executable will be named after the source file, but with a .out extension.
           echo "Compiling $file..."
-          g++ -std=c++17 "$file" -o "${file%.cpp}.out"
-          echo "Successfully compiled $file to ${file%.cpp}.out"
+          g++ -std=c++17 -Wall "$file" -o "${file%.cpp}.out"
         done
+        echo "All files compiled successfully."
