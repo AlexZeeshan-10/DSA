@@ -1,6 +1,10 @@
 #include <iostream>
 #include <vector>
 
+bool searchMatrixBS(std::vector<std::vector<int>>, int target){
+    
+}
+
 int main(){
     int row, column;
     std::cin >> row;
@@ -19,6 +23,6 @@ int main(){
     int target;
     std::cin >> target;
     
-    bool ans = searchMatrixBrute(mat, target);
+    bool ans = searchMatrixBS(mat, target);
     std::cout << ans << std::endl;
 }
