@@ -16,5 +16,6 @@ int main(){
         }
     }
 
-    
+    int ans = rowWithMax1s(mat, row, column);
+    std::cout << ans << std::endl;
 }
