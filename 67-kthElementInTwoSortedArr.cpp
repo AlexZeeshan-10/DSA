@@ -1,6 +1,10 @@
 #include <iostream>
 #include <vector>
 
+int kthElement(std::vector<int> &arr1, std::vector<int> &arr2, int k){
+    
+}
+
 int main(){
     int n1;
     std::cin >> n1;
