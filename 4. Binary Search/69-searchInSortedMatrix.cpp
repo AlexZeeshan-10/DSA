@@ -14,6 +14,7 @@ bool searchMatrixBrute(std::vector<std::vector<int>> &matrix, int target)
     return false;
 }
 
+//binary search
 bool binarySearch(std::vector<int> &arr, int target)
 {
     int low = 0, high = arr.size() - 1;
