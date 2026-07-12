@@ -34,8 +34,9 @@ jobs:
     - name: Compile changed C++ files
       if: steps.changed-files.outputs.files != ''
       run: |
-        echo "Compiling: ${{ steps.changed-files.outputs.files }}"
+        echo "Compiling changed files: ${{ steps.changed-files.outputs.files }}"
         for file in ${{ steps.changed-files.outputs.files }}; do
-          echo "Checking: $file"
-          g++ -std=c++17 -Wall -Wextra -fsyntax-only "$file"
+          echo "--> Compiling $file"
+          g++ -std=c++17 -Wall -Wextra "$file" -o "${file%.*}.out"
         done
+        echo "Compilation successful."
