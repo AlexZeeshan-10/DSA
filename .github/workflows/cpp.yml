@@ -6,7 +6,8 @@ on:
 
 jobs:
   build:
-    if: github.ref == 'refs/heads/main' # Only run on the main branch
+    # Only run this job for pushes/PRs to the main branch
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
@@ -24,9 +25,14 @@ jobs:
           # For PRs, compare with base branch
           CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} HEAD -- '*.cpp' '*.h' '*.hpp')
         else
-          # For pushes, compare HEAD with the commit before the push (github.event.before).
-          # This is robust and handles single commits, multiple commits, and merge commits correctly.
-          CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.before }} ${{ github.sha }} -- '*.cpp' '*.h' '*.hpp')
+          # For pushes, compare HEAD with the commit before the push.
+          # This handles single commits, multiple commits, and merge commits correctly.
+          if [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+            # This is the first push to a new branch. List all files in the last commit.
+            CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT HEAD~1 HEAD -- '*.cpp' '*.h' '*.hpp')
+          else
+            CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.before }} ${{ github.sha }} -- '*.cpp' '*.h' '*.hpp')
+          fi
         fi
         # Use a special delimiter that is unlikely to be in a filename
         echo "files<<EOF" >> $GITHUB_OUTPUT
@@ -39,6 +45,11 @@ jobs:
       if: steps.changed-files.outputs.files != ''
       run: |
         echo "${{ steps.changed-files.outputs.files }}" | while IFS= read -r file; do
+            if [ -z "$file" ]; then continue; fi
+            if [ ! -f "$file" ]; then
+              echo "File '$file' deleted or not found, skipping."
+              continue
+            fi
             echo "--> Compiling '$file'"
             g++ -std=c++17 -Wall -Wextra "$file" -o "${file%.*}.out"
         done
