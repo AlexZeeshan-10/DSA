@@ -1,0 +1,30 @@
+# This is a basic GitHub Actions workflow to compile your C++ code.
+# It will be triggered on every push to your main branch.
+
+name: C++ CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Compile all C++ files
+      run: |
+        # This script finds every .cpp file in your repository,
+        # no matter which folder it's in.
+        find . -type f -name "*.cpp" | while read -r file; do
+          # It then compiles each file into a separate executable.
+          # The executable will be named after the source file, but with a .out extension.
+          echo "Compiling $file..."
+          g++ -std=c++17 "$file" -o "${file%.cpp}.out"
+          echo "Successfully compiled $file to ${file%.cpp}.out"
+        done
