@@ -18,4 +18,7 @@ int main(){
 
     int target;
     std::cin >> target;
+
+    bool ans = searchMatrix(mat, target);
+    (ans == 1) ? std::cout << "True" : std::cout << "False";
 }
