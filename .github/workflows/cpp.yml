@@ -1,13 +1,12 @@
 name: C/C++ CI
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  - push
+  - pull_request
 
 jobs:
   build:
+    if: github.ref == 'refs/heads/main' # Only run on the main branch
     runs-on: ubuntu-latest
 
     steps:
