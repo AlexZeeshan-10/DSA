@@ -24,8 +24,9 @@ jobs:
           # For PRs, compare with base branch
           CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} HEAD -- '*.cpp' '*.h' '*.hpp' | tr '\n' ' ')
         else
-          # For pushes, compare with previous commit
-          CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT HEAD~1 HEAD -- '*.cpp' '*.h' '*.hpp' | tr '\n' ' ')
+          # For pushes, compare HEAD with the commit before the push (github.event.before).
+          # This is robust and handles single commits, multiple commits, and merge commits correctly.
+          CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.before }} ${{ github.sha }} -- '*.cpp' '*.h' '*.hpp' | tr '\n' ' ')
         fi
         echo "files=$CHANGED_FILES" >> $GITHUB_OUTPUT
         echo "Changed files: $CHANGED_FILES"
