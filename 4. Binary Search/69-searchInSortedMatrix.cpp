@@ -15,4 +15,10 @@ int main(){
             std::cin >> mat[i][j];
         }
     }
+
+    int target;
+    std::cin >> target;
+    
+    bool ans = searchMatrixBrute(mat, target);
+    std::cout << ans << std::endl;
 }
