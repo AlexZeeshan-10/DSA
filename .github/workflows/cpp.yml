@@ -22,21 +22,24 @@ jobs:
       run: |
         if [ "${{ github.event_name }}" == "pull_request" ]; then
           # For PRs, compare with base branch
-          CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} HEAD -- '*.cpp' '*.h' '*.hpp' | tr '\n' ' ')
+          CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} HEAD -- '*.cpp' '*.h' '*.hpp')
         else
           # For pushes, compare HEAD with the commit before the push (github.event.before).
           # This is robust and handles single commits, multiple commits, and merge commits correctly.
-          CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.before }} ${{ github.sha }} -- '*.cpp' '*.h' '*.hpp' | tr '\n' ' ')
+          CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.before }} ${{ github.sha }} -- '*.cpp' '*.h' '*.hpp')
         fi
-        echo "files=$CHANGED_FILES" >> $GITHUB_OUTPUT
-        echo "Changed files: $CHANGED_FILES"
+        # Use a special delimiter that is unlikely to be in a filename
+        echo "files<<EOF" >> $GITHUB_OUTPUT
+        echo "$CHANGED_FILES" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+        echo "Detected changed files:"
+        echo "$CHANGED_FILES"
     
     - name: Compile changed C++ files
       if: steps.changed-files.outputs.files != ''
       run: |
-        echo "Compiling changed files: ${{ steps.changed-files.outputs.files }}"
-        for file in ${{ steps.changed-files.outputs.files }}; do
-          echo "--> Compiling $file"
-          g++ -std=c++17 -Wall -Wextra "$file" -o "${file%.*}.out"
+        echo "${{ steps.changed-files.outputs.files }}" | while IFS= read -r file; do
+            echo "--> Compiling '$file'"
+            g++ -std=c++17 -Wall -Wextra "$file" -o "${file%.*}.out"
         done
-        echo "Compilation successful."
+        echo "All changed files compiled successfully."
