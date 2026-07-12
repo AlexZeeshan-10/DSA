@@ -31,6 +31,7 @@ bool binarySearch(std::vector<int> &arr, int target)
     return false;
 }
 
+// binary search approach
 bool searchMatrixBS(std::vector<std::vector<int>> &matrix, int target)
 {
     int n = matrix.size();
