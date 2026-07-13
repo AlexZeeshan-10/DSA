@@ -1,21 +1,13 @@
 #include <iostream>
 #include <vector>
 
-bool searchMatrix(std::vector<std::vector<int>>& matrix, int target) {
-    if (matrix.empty() || matrix[0].empty()) return false;
-    int n = matrix.size();
-    int m = matrix[0].size();
-    int row = 0, col = m - 1; 
-
-    while (row < n && col >= 0) {
-        if (matrix[row][col] == target) return true;
-        else if (matrix[row][col] > target) col--; 
-        else row++; 
-    }
-    return false;
+bool searchMatrixBrute(std::vector<std::vector<int>> &matrix, int target)
+{
+    
 }
 
-int main(){
+int main()
+{
     int row, column;
     std::cin >> row;
     std::cin >> column;
@@ -33,6 +25,6 @@ int main(){
     int target;
     std::cin >> target;
 
-    bool ans = searchMatrix(mat, target);
+    bool ans = searchMatrixBrute(mat, target);
     (ans == 1) ? std::cout << "True" : std::cout << "False";
 }
