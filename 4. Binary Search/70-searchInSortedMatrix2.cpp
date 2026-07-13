@@ -15,8 +15,12 @@ bool searchMatrixBrute(std::vector<std::vector<int>> &matrix, int target)
 
 bool searchMatrixBS(std::vector<std::vector<int>> &matrix, int target)
 {
-    int n = 0, m = matrix[0].size() - 1;
-    int row = 0, column = m - 1;
+    int n = matrix.size();
+    int m = matrix[0].size() - 1;
+
+    int row = 0;
+    int column = m;
+
     while (row < n && column >= 0)
     {
         if (matrix[row][column] == target)
@@ -26,6 +30,7 @@ bool searchMatrixBS(std::vector<std::vector<int>> &matrix, int target)
         else
             column--;
     }
+
     return false;
 }
 
