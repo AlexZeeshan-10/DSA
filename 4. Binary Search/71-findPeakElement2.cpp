@@ -24,7 +24,7 @@ std::vector<int> findPeakGridBS(std::vector<std::vector<int>> &mat)
         int maxRowIndex = findMaxIndex(mat, n, m, mid);
         int left = (mid - 1 >= 0) ? mat[maxRowIndex][mid - 1] : -1;
         int right = (mid + 1 <= m) ? mat[maxRowIndex][mid + 1] : -1;
-        if (mat[maxRowIndex][mid] > left && mar[maxRowIndex][mid] > right)
+        if (mat[maxRowIndex][mid] > left && mat[maxRowIndex][mid] > right)
         {
             return {maxRowIndex, mid};
         }
