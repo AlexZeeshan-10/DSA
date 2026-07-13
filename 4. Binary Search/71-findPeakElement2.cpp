@@ -1,5 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <climits>
+
+std::vector<int> findPeakGridBrute(std::vector<std::vector<int>>& mat){
+    
+}
 
 int main(){
     int row, column;
@@ -14,6 +19,6 @@ int main(){
         }
     }
     
-    std::vector<int> ans = findPeakGrid(mat);
+    std::vector<int> ans = findPeakGridBrute(mat);
     std::cout << ans[0] << " " << ans[1] << std::endl;
 }
