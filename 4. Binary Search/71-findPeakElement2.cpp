@@ -1,6 +1,18 @@
 #include <iostream>
 #include <vector>
 
+int findMaxIndex(std::vector<std::vector<int>> &mat, int n, int m, int col){
+    int maxVal = -1;
+    int ind = -1;
+    for (size_t i = 0; i < n; i++)
+    {
+        (mat[i][col] > maxVal)
+            ? (maxVal = mat[i][col], ind = i)
+            : 0;    
+    }
+    return ind;
+}
+
 std::vector<int> findPeakGridBS(std::vector<std::vector<int>> &mat){
     int n = mat.size(), m = mat[0].size();
     int low = 0, high = m - 1;
