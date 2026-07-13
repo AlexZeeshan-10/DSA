@@ -14,4 +14,6 @@ int main(){
         }
     }
     
+    std::vector<int> ans = findPeakGrid(mat);
+    std::cout << ans[0] << " " << ans[1] << std::endl;
 }
