@@ -6,42 +6,38 @@ on:
 
 jobs:
   build:
-    # Only run this job for pushes/PRs to the main branch
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
       with:
-        fetch-depth: 0  # Fetch full history for git diff
+        fetch-depth: 0
     
-    - name: Check out compiler version
-      run: g++ --version
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cppcheck clang-format python3
     
     - name: Detect changed C++ files
       id: changed-files
       run: |
         if [ "${{ github.event_name }}" == "pull_request" ]; then
-          # For PRs, compare with base branch
           CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} HEAD -- '*.cpp' '*.h' '*.hpp')
         else
-          # For pushes, compare HEAD with the commit before the push.
-          # This handles single commits, multiple commits, and merge commits correctly.
           if [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
-            # This is the first push to a new branch. List all files in the last commit.
             CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT HEAD~1 HEAD -- '*.cpp' '*.h' '*.hpp')
           else
             CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.before }} ${{ github.sha }} -- '*.cpp' '*.h' '*.hpp')
           fi
         fi
-        # Use a special delimiter that is unlikely to be in a filename
         echo "files<<EOF" >> $GITHUB_OUTPUT
         echo "$CHANGED_FILES" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
         echo "Detected changed files:"
         echo "$CHANGED_FILES"
     
-    - name: Compile changed C++ files
+    - name: Analyze, Format and Compile
       if: steps.changed-files.outputs.files != ''
       run: |
         echo "${{ steps.changed-files.outputs.files }}" | while IFS= read -r file; do
@@ -50,7 +46,36 @@ jobs:
               echo "File '$file' deleted or not found, skipping."
               continue
             fi
+            
+            echo "--> Formatting '$file'"
+            clang-format -i "$file"
+            
+            echo "--> Analyzing '$file'"
+            cppcheck --enable=all --suppress=missingIncludeSystem "$file"
+            
             echo "--> Compiling '$file'"
             g++ -std=c++17 -Wall -Wextra "$file" -o "${file%.*}.out"
         done
-        echo "All changed files compiled successfully."
+        echo "All changed files passed analysis and compilation successfully."
+        
+    - name: Update Progress Tracker
+      run: |
+        chmod +x scripts/update_progress.py
+        python3 scripts/update_progress.py
+
+    - name: Auto-commit changes
+      if: github.event_name == 'push'
+      run: |
+        # Configure git identity for the action
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        
+        # Check if there are any changes (from clang-format or update_progress.py)
+        if git diff --quiet; then
+          echo "No changes to commit."
+        else
+          git add -u
+          git commit -m "chore: auto-format code and update progress tracker"
+          git push
+          echo "Changes committed and pushed successfully."
+        fi

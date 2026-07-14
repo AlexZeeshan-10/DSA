@@ -114,6 +114,9 @@ Most implementations include:
 * Continuously updated
 * Focused on learning patterns rather than memorizing solutions
 
+<!-- PROGRESS_TRACKER_START -->
+<!-- PROGRESS_TRACKER_END -->
+
 Current Focus:
 
 * Binary Search Patterns
