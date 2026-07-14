@@ -115,6 +115,15 @@ Most implementations include:
 * Focused on learning patterns rather than memorizing solutions
 
 <!-- PROGRESS_TRACKER_START -->
+
+| Topic | Problems Solved |
+|-------|-----------------|
+| 1. The Basics | 14 |
+| 2. Sorting Techniques | 3 |
+| 3. Array Problems | 28 |
+| 4. Binary Search | 27 |
+| **Total** | **72** |
+
 <!-- PROGRESS_TRACKER_END -->
 
 Current Focus:
