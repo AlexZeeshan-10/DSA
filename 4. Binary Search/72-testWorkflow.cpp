@@ -9,6 +9,6 @@ int arr[5];
       if (uninitialized_var == 5) { // Using an uninitialized variable! (cppcheck should catch this)
           std::cout << "Hello" << std::endl;
       }
-      
+//again checking
 return 0;
 }
