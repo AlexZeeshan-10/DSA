@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-using namespace std;
 
 class Node
 {
@@ -21,7 +20,7 @@ public:
     }
 };
 
-Node* convertArrayToLinkedList(vector<int> &arr){
+Node* convertArrayToLinkedList(std::vector<int> &arr){
     Node* head = new Node(arr[0]);
     Node* mover = head;
     
@@ -40,13 +39,13 @@ int main()
     // Node *y = new Node(arr[0], nullptr);
     // cout << y->data;
 
-    vector<int> arr = {12, 5, 8, 7};
+    std::vector<int> arr = {12, 5, 8, 7};
     Node* head = convertArrayToLinkedList(arr);
     Node* temp = head;
     while (temp)
     {
-        cout << temp->data << " -> ";
+        std::cout << temp->data << " -> ";
         temp = temp->next;
     }
-    cout << "nullptr" << endl;
+    std::cout << "nullptr" << std::endl;
 }
