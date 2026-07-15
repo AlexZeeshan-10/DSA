@@ -13,12 +13,19 @@ public:
         data = data1;
         next = next1;
     }
+
+    Node(int data1)
+    {
+        data = data1;
+        next = nullptr;
+    }
 };
 
 Node* convertArrayToLinkedList(vector<int> &arr){
     Node* head = new Node(arr[0]);
     Node* mover = head;
-    for (size_t i = 0; i < arr.size(); i++)
+    
+    for (size_t i = 1; i < arr.size(); i++)
     {
         Node* temp = new Node(arr[i]);
         mover -> next = temp;
