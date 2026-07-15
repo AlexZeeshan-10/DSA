@@ -32,16 +32,17 @@ The goal is to understand not only *how* a solution works, but also *why* certai
 
 ## 📂 Repository Structure
 
-Each file represents a concept, algorithm, or problem studied during the learning journey.
-
-Example:
+The repository is structured into topic-based directories to keep concepts clearly separated and easy to navigate. Each file represents a specific problem, algorithm, or concept.
 
 ```text
-1-demo.cpp
-2-array.cpp
-13-Hashing.cpp
-24-Kadane-algo.cpp
-...
+📦 DSA
+ ┣ 📂 1. The Basics
+ ┣ 📂 2. Sorting Techniques
+ ┣ 📂 3. Array Problems
+ ┣ 📂 4. Binary Search
+ ┣ 📂 scripts
+ ┃ ┗ 📜 update_progress.py (Automates progress tracking)
+ ┗ 📜 Readme.md
 ```
 
 Most implementations include:
@@ -105,6 +106,14 @@ Most implementations include:
 * Memoization
 * Tabulation
 * Space Optimization
+
+---
+
+## 🤖 Automated CI/CD Workflow
+
+This repository uses **GitHub Actions** to automatically maintain its health and quality:
+* **Syntax Verification:** Every push automatically compiles the changed `.cpp` files using `g++` to catch syntax errors early.
+* **Auto-Updating Progress:** A custom Python script counts the solved problems across all topic folders and dynamically updates the Progress table below.
 
 ---
 
