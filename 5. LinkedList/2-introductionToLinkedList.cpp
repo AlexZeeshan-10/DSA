@@ -48,5 +48,5 @@ int main()
         cout << temp->data << " -> ";
         temp = temp->next;
     }
-    
+    cout << "nullptr" << endl;
 }
