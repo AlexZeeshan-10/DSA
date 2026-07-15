@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node
+class Node
 {
 public:
     int data;
@@ -15,9 +15,23 @@ public:
     }
 };
 
+Node* convertArrayToLinkedList(vector<int> &arr){
+    Node* head = new Node(arr[0]);
+    Node* mover = head;
+    for (size_t i = 0; i < arr.size(); i++)
+    {
+        Node* temp = new Node(arr[i]);
+        mover -> next = temp;
+        mover = temp;
+    }
+    return head;
+}
+
 int main()
 {
-    vector<int> arr = {2, 5, 8, 7};
-    Node *y = new Node(arr[0], nullptr);
-    cout << y;
+    // vector<int> arr = {2, 5, 8, 7};
+    // Node *y = new Node(arr[0], nullptr);
+    // cout << y->data;
+
+
 }
