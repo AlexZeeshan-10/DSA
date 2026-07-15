@@ -34,6 +34,6 @@ int main()
     // cout << y->data;
 
     vector<int> arr = {12, 5, 8, 7};
-    Node* head = convertArrayToLinkedList(arr0);
+    Node* head = convertArrayToLinkedList(arr);
     cout << head->data;
 }
