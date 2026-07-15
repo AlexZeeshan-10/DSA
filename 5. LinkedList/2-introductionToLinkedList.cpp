@@ -42,5 +42,11 @@ int main()
 
     vector<int> arr = {12, 5, 8, 7};
     Node* head = convertArrayToLinkedList(arr);
-    cout << head->data;
+    Node* temp = head;
+    while (temp)
+    {
+        cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    
 }
