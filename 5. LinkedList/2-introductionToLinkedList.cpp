@@ -50,9 +50,9 @@ int lengthOfLinkedList(Node *head)
 int main()
 {
     // basics
-    // vector<int> arr = {2, 5, 8, 7};
-    // Node *y = new Node(arr[0], nullptr);
-    // cout << y->data;
+    // std::vector<int> arr = {2, 5, 8, 7};
+    // Node *y = new Node(arr[0]);
+    // std::cout << y->data;
 
     // Traversing a array into a linkedlist
 
