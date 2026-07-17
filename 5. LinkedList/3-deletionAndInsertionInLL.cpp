@@ -33,6 +33,10 @@ Node *convertArrToLL(std::vector<int> &arr)
     return head;
 }
 
+Node *deleteHead(Node *head){
+    
+}
+
 int main()
 {
     int n;
@@ -45,5 +49,5 @@ int main()
 
     Node *head = convertArrToLL(arr);
     
-    Node *head1 = deleteHead(*head);
+    Node *head1 = deleteHead(head);
 }
