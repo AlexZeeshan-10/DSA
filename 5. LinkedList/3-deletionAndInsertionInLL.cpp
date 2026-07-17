@@ -12,12 +12,26 @@ public:
         data = data1;
         next = next1;
     }
-    
-    Node(int data1){
+
+    Node(int data1)
+    {
         data = data1;
         next = nullptr;
     }
 };
+
+Node *convertArrToLL(std::vector<int> &arr)
+{
+    Node *head = new Node(arr[0]);
+    Node *mover = head;
+    for (int i = 1; i < arr.size(); ++i)
+    {
+        Node *temp = new Node(arr[i]);
+        (*mover).next = temp;
+        mover = mover->next;
+    }
+    return head;
+}
 
 int main()
 {
@@ -28,6 +42,7 @@ int main()
     {
         std::cin >> arr[i];
     }
+
+    Node *head = convertArrToLL(arr);
     
-    int head = convertArrToLL(arr);
 }
