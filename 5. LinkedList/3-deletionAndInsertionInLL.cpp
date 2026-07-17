@@ -19,6 +19,10 @@ public:
     }
 };
 
+int convertArrToLL(std::vector<int> &arr){
+    
+}
+
 int main()
 {
     int n;
