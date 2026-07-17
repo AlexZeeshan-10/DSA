@@ -61,8 +61,10 @@ int main()
 
     Node *head = convertArrToLL(arr);
 
-    head = deleteHead(head);
+    // head = deleteHead(head);
 
+    head = deleteTail(head);
+    
     Node *temp = head;
     while (temp)
     {
