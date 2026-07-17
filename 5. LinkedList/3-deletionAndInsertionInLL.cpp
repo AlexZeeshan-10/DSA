@@ -49,6 +49,10 @@ Node *deleteHead(Node *head)
     return head;
 }
 
+*Node deleteTail(Node *head){
+    
+}
+
 int main()
 {
     int n;
@@ -64,7 +68,7 @@ int main()
     // head = deleteHead(head);
 
     head = deleteTail(head);
-    
+
     Node *temp = head;
     while (temp)
     {
