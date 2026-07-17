@@ -45,4 +45,5 @@ int main()
 
     Node *head = convertArrToLL(arr);
     
+    Node *head1 = deleteHead(*head);
 }
