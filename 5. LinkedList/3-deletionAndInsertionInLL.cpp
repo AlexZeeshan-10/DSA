@@ -16,7 +16,7 @@ public:
     Node(int data1)
     {
         data = data1;
-        next = NULL;
+        next = nullptr;
     }
 };
 
@@ -24,7 +24,7 @@ Node *convertArrToLL(std::vector<int> &arr)
 {
     if (arr.empty())
     {
-        return NULL;
+        return nullptr;
     }
     Node *head = new Node(arr[0]);
     Node *mover = head;
@@ -39,13 +39,31 @@ Node *convertArrToLL(std::vector<int> &arr)
 
 Node *deleteHead(Node *head)
 {
-    if (head == NULL)
+    if (head == nullptr)
     {
         return head;
     }
     Node *temp = head;
     head = head->next;
-    free (temp);
+    delete temp;
+    return head;
+}
+
+Node *deleteTail(Node *head)
+{
+    if (head == nullptr || head->next == nullptr)
+    {
+        delete head;
+        return nullptr;
+    }
+
+    Node *temp = head;
+    while (temp->next->next != nullptr)
+    {
+        temp = temp->next;
+    }
+    delete temp->next;
+    temp->next = nullptr;
     return head;
 }
 
@@ -61,7 +79,9 @@ int main()
 
     Node *head = convertArrToLL(arr);
 
-    head = deleteHead(head);
+    // head = deleteHead(head);
+
+    head = deleteTail(head);
 
     Node *temp = head;
     while (temp)
