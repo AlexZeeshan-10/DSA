@@ -128,8 +128,19 @@ Node *insertTail(Node *head, int k)
 Node *insertK(Node *head, int k, int ele){
     if(head == NULL) return new Node(ele);
     if(k == 1) Node *temp = new Node(ele, head);
+    int cnt = 0;
     Node *temp = head;
-    
+    while (temp != NULL)
+    {
+        cnt++;
+        if(cnt == k-1){
+            Node *x = new Node(ele);
+            x->next = temp->next;
+            temp->next = x;
+        }
+        temp = temp->next;
+        break;
+    }
     return head;
 }
 
