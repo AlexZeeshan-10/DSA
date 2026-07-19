@@ -76,10 +76,13 @@ Node *deleteKthEle(Node *head, int k)
         if (cnt == k)
         {
             prev->next = prev->next->next;
+            delete temp;
             break;
         }
+        prev = temp;
         temp = temp->next;
     }
+    return head;
 }
 
 int main()
