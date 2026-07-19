@@ -61,6 +61,11 @@ Node *deleteTail(Node *head)
     return head;
 }
 
+Node *deleteKthEle(Node *head, int k)
+{
+    
+}
+
 int main()
 {
     int n;
@@ -75,7 +80,9 @@ int main()
 
     // head = deleteHead(head);
 
-    head = deleteTail(head);
+    // head = deleteTail(head);
+
+    head = deleteKthEle(head);
 
     Node *temp = head;
     while (temp)
