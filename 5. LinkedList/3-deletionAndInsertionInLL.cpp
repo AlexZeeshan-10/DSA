@@ -111,6 +111,11 @@ Node *insertHead(Node *head, int k){
     return new Node(k, head);
 }
 
+Node *insertTail(Node *head, int k){
+    if(head == NULL) return new Node(k);
+
+}
+
 int main()
 {
     int n;
@@ -132,7 +137,7 @@ int main()
 
     // head = deleteEle(head, k);
 
-    head = insertHead(head, k);
+    head = insertTail(head, k);
 
     Node *temp = head;
     while (temp)
