@@ -61,6 +61,52 @@ Node *deleteTail(Node *head)
     return head;
 }
 
+Node *deleteKthEle(Node *head, int k)
+{
+    if (head == NULL)
+        return head;
+    if (k == 1)
+        return deleteHead(head);
+    int cnt = 0;
+    Node *temp = head;
+    Node *prev = NULL;
+    while (temp != NULL)
+    {
+        cnt++;
+        if (cnt == k)
+        {
+            prev->next = prev->next->next;
+            delete temp;
+            break;
+        }
+        prev = temp;
+        temp = temp->next;
+    }
+    return head;
+}
+
+Node *deleteEle(Node *head, int k)
+{
+    if (head == NULL)
+        return head;
+    if (head->data == k)
+        return deleteHead(head);
+    Node *temp = head;
+    Node *prev = NULL;
+    while (temp != NULL)
+    {
+        if (temp->data == k)
+        {
+            prev->next = prev->next->next;
+            delete temp;
+            break;
+        }
+        prev = temp;
+        temp = temp->next;
+    }
+    return head;
+}
+
 int main()
 {
     int n;
@@ -75,7 +121,12 @@ int main()
 
     // head = deleteHead(head);
 
-    head = deleteTail(head);
+    // head = deleteTail(head);
+
+    int k;
+    std::cin >> k;
+
+    head = deleteEle(head, k);
 
     Node *temp = head;
     while (temp)
