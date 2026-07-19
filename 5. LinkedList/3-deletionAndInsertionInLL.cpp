@@ -107,6 +107,20 @@ Node *deleteEle(Node *head, int k)
     return head;
 }
 
+Node *insertHead(Node *head, int k){
+    return new Node(k, head);
+}
+
+Node *insertTail(Node *head, int k){
+    if(head == NULL) return new Node(k);
+    Node *temp = head;
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+    temp->next = new Node(k);
+    return head;
+}
+
 int main()
 {
     int n;
@@ -126,7 +140,9 @@ int main()
     int k;
     std::cin >> k;
 
-    head = deleteEle(head, k);
+    // head = deleteEle(head, k);
+
+    head = insertTail(head, k);
 
     Node *temp = head;
     while (temp)
