@@ -125,21 +125,50 @@ Node *insertTail(Node *head, int k)
     return head;
 }
 
-Node *insertK(Node *head, int k, int ele){
-    if(head == NULL) return new Node(ele);
-    if(k == 1) Node *temp = new Node(ele, head);
+Node *insertAtKthPosition(Node *head, int k, int ele)
+{
+    if (head == NULL)
+    {
+        if (k == 1)
+            return new Node(ele);
+        else
+            return NULL;
+    }
+    if (k == 1)
+        return new Node(ele, head);
     int cnt = 0;
     Node *temp = head;
     while (temp != NULL)
     {
         cnt++;
-        if(cnt == k-1){
-            Node *x = new Node(ele);
-            x->next = temp->next;
+        if (cnt == k - 1)
+        {
+            Node *x = new Node(ele, temp->next);
             temp->next = x;
+            break;
         }
         temp = temp->next;
-        break;
+    }
+    return head;
+}
+
+Node *insertBeforeVal(Node *head, int val, int ele)
+{
+    if (head == NULL)
+        return NULL;
+    if (head->data == val)
+        return new Node(ele, head);
+
+    Node *temp = head;
+    while (temp != NULL && temp->next != NULL)
+    {
+        if (temp->next->data == val)
+        {
+            Node *x = new Node(ele, temp->next);
+            temp->next = x;
+            return head;
+        }
+        temp = temp->next;
     }
     return head;
 }
@@ -160,16 +189,20 @@ int main()
 
     // head = deleteTail(head);
 
-    int k;
-    std::cin >> k;
+    // int k;
+    // std::cin >> k;
 
     // head = deleteEle(head, k);
 
     // head = insertTail(head, k);
 
+    // For testing insertBeforeVal
+    int val;
+    std::cin >> val;
     int ele;
     std::cin >> ele;
-    head = insertK(head, k, ele);
+    // head = insertAtKthPosition(head, k, ele);
+    head = insertBeforeVal(head, val, ele);
 
     Node *temp = head;
     while (temp)
