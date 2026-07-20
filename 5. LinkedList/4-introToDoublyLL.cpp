@@ -23,4 +23,6 @@ int main()
         std::cin >> arr[i];
     }
     
+    Node *head = new Node(arr[0]);
+    head = convertArrayToLL(head);
 }
