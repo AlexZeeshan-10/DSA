@@ -13,6 +13,18 @@ public:
         : data(data1), next(nullptr) {}
 };
 
+Node *convertArrayToLL(std::vector<int> &arr){
+    Node *head = new Node(arr[0]);
+    Node *mover = head;
+    for (size_t i = 1; i < arr.size(); ++i)
+    {
+        Node *temp = new Node(arr[i]);
+        mover->next = temp;
+        mover = mover->next;
+    }
+    return head;
+}
+
 int main()
 {
     int n;
@@ -23,6 +35,12 @@ int main()
         std::cin >> arr[i];
     }
     
-    Node *head = new Node(arr[0]);
-    head = convertArrayToLL(head);
+    Node *head = convertArrayToLL(arr);
+    Node *temp = head;
+    while (temp)
+    {
+        std::cout << temp->data << " -> ";
+	temp = temp->next;
+    }
+    std::cout << " nullptr ";
 }
