@@ -73,4 +73,6 @@ int main()
         temp = temp->next;
     }
     std::cout << "nullptr" << std::endl;
+
+    return 0;
 }
