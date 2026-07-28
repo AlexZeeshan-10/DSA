@@ -66,8 +66,28 @@ Node *deleteHead(Node *head)
 }
 
 // deleting tail in a doubly LL
-Node *deleteHead(Node *head){
-    
+Node *deleteTail(Node *head)
+{
+    if (head == nullptr)
+        return nullptr;
+
+    if (head->next == nullptr)
+    {
+        delete head;
+        return nullptr;
+    }
+
+    Node *temp = head;
+    while (temp->next != nullptr)
+    {
+        temp = temp->next;
+    }
+
+    Node *prev = temp->prev;
+    prev->next = nullptr;
+    temp->prev = nullptr;
+    delete temp;
+    return head;
 }
 
 int main()
@@ -86,6 +106,7 @@ int main()
 
     head = convertToDoublyLL(arr);
     head = deleteHead(head);
+    head = deleteTail(head);
 
     if (head == nullptr)
     {
