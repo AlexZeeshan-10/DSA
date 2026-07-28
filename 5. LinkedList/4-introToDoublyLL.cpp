@@ -65,6 +65,11 @@ Node *deleteHead(Node *head)
     return head;
 }
 
+// deleting tail in a doubly LL
+Node *deleteHead(Node *head){
+    
+}
+
 int main()
 {
     int n;
