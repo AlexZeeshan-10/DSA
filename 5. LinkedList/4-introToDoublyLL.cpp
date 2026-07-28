@@ -39,15 +39,30 @@ Node *convertToDoublyLL(std::vector<int> &arr)
     for (int i = 1; i < arr.size(); ++i)
     {
         Node *temp = new Node(arr[i], nullptr, prev);
-        prev -> next = temp;
+        prev->next = temp;
         prev = temp;
     }
     return head;
 }
 
 // deleting head in a doubly LL
-Node *head(Node *head){
-    
+Node *deleteHead(Node *head)
+{
+    if (head == nullptr)
+        return nullptr;
+
+    if (head->next == nullptr)
+    {
+        delete head;
+        return nullptr;
+    }
+
+    Node *prev = head;
+    head = head->next;
+    head->prev = nullptr;
+    prev->next = nullptr;
+    delete prev;
+    return head;
 }
 
 int main()
@@ -65,6 +80,7 @@ int main()
     // head = convertArrayToLL(arr);
 
     head = convertToDoublyLL(arr);
+    head = deleteHead(head);
 
     if (head == nullptr)
     {
