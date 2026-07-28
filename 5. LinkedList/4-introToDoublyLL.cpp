@@ -14,6 +14,7 @@ public:
         : data(data1), next(nullptr), prev(nullptr) {}
 };
 
+// convert array to a LL
 Node *convertArrayToLL(std::vector<int> &arr)
 {
     Node *head = new Node(arr[0]);
@@ -27,6 +28,7 @@ Node *convertArrayToLL(std::vector<int> &arr)
     return head;
 }
 
+// convert to a doubly LL
 Node *convertToDoublyLL(std::vector<int> &arr)
 {
     if (arr.empty())
@@ -41,6 +43,11 @@ Node *convertToDoublyLL(std::vector<int> &arr)
         prev = temp;
     }
     return head;
+}
+
+// deleting head in a doubly LL
+Node *head(Node *head){
+    
 }
 
 int main()
