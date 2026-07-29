@@ -140,6 +140,16 @@ Node *deleteNode(Node *head, Node *target)
     return head;
 }
 
+// Insertion at the head of a doubly LL
+Node *insertHead(Node *head, int val)
+{
+    if (head == nullptr)
+        return head = new Node(val);
+    Node *temp = head;
+    head = new Node(val, temp, nullptr);
+    return head;
+}
+
 int main()
 {
     int n;
@@ -154,9 +164,9 @@ int main()
 
     head = convertToDoublyLL(arr);
 
-    int target;
-    std::cin >> target;
-    head = deleteKthElement(head, target);
+    int val;
+    std::cin >> val;
+    head = insertHead(head, val);
 
     if (head == nullptr)
     {
