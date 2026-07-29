@@ -144,9 +144,12 @@ Node *deleteNode(Node *head, Node *target)
 Node *insertHead(Node *head, int val)
 {
     if (head == nullptr)
-        return head = new Node(val);
+        return new Node(val);
+
     Node *temp = head;
     head = new Node(val, temp, nullptr);
+    temp->prev = head;
+
     return head;
 }
 
