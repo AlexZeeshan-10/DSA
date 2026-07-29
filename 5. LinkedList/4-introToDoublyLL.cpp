@@ -153,6 +153,29 @@ Node *insertHead(Node *head, int val)
     return head;
 }
 
+Node *insertBeforeTail(Node *head, int val)
+{
+    if (head == nullptr)
+        return nullptr;
+
+    Node *temp = head;
+    while (temp->next != nullptr)
+    {
+        temp = temp->next;
+    }
+
+    Node *back = temp->prev;
+    if (back == nullptr)
+        return insertHead(head, val);
+
+    Node *newNode = new Node(val, temp, back);
+
+    back->next = newNode;
+    temp->prev = newNode;
+
+    return head;
+}
+
 int main()
 {
     int n;
@@ -169,7 +192,7 @@ int main()
 
     int val;
     std::cin >> val;
-    head = insertHead(head, val);
+    head = insertBeforeTail(head, val);
 
     if (head == nullptr)
     {
