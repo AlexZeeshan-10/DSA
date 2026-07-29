@@ -91,28 +91,49 @@ Node *deleteTail(Node *head)
 }
 
 // deleting kth element in a Doubly LL
-Node *deleteKthElement(Node *head, int target){
+Node *deleteKthElement(Node *head, int target)
+{
     Node *temp = head;
     int cnt = 0;
     while (temp != nullptr)
     {
         cnt++;
-        if(cnt == target) break;
+        if (cnt == target)
+            break;
         temp = temp->next;
     }
     Node *back = temp->prev;
     Node *front = temp->next;
-    if(back == nullptr && front == nullptr){
+    if (back == nullptr && front == nullptr)
+    {
         delete temp;
         return head;
     }
-    else if(back == nullptr)
+    else if (back == nullptr)
         return deleteHead(head);
-    else if(front == nullptr)
+    else if (front == nullptr)
         return deleteTail(head);
-    
+
     back->next = front;
     front->prev = back;
+    temp->next = nullptr;
+    temp->prev = nullptr;
+    delete temp;
+    return head;
+}
+
+// delete node in a Doubly LL
+Node *deleteNode(Node *head, Node *target)
+{
+    Node *temp = target;
+    Node *front = temp->next;
+    Node *back = temp->prev;
+    if (front == nullptr)
+    {
+        return deleteTail(head);
+    }
+    front->prev = back;
+    back->next = front;
     temp->next = nullptr;
     temp->prev = nullptr;
     delete temp;
@@ -132,7 +153,7 @@ int main()
     Node *head;
 
     head = convertToDoublyLL(arr);
-    
+
     int target;
     std::cin >> target;
     head = deleteKthElement(head, target);
