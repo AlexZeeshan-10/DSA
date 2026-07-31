@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 
 class Node
 {
@@ -14,8 +15,8 @@ public:
         : data(data1), next(nullptr), prev(nullptr) {}
 };
 
-
-Node *convertToDoublyLL(std::vector<int> &arr){
+Node *convertToDoublyLL(std::vector<int> &arr)
+{
     Node *head = new Node(arr[0]);
     Node *mover = head;
     for (size_t i = 0; i < arr.size(); ++i)
@@ -27,7 +28,30 @@ Node *convertToDoublyLL(std::vector<int> &arr){
     return head;
 }
 
-int main(){
+// Reverse a Doubly LL
+Node *reverseDoublyLL(Node *head)
+{
+    std::stack<int> st;
+    Node *temp = head;
+    while (temp != nullptr)
+    {
+        st.push(temp->data);
+        temp = temp->next;
+    }
+    
+    temp = head;
+    while (temp != nullptr)
+    {
+        temp->data = st.top();
+        st.pop();
+        temp = temp->next;
+    }
+    
+    return head;
+}
+
+int main()
+{
     int n;
     std::cin >> n;
     std::vector<int> arr(n);
@@ -35,8 +59,19 @@ int main(){
     {
         std::cin >> arr[i];
     }
-    
+
     Node *head = convertToDoublyLL(arr);
+
+    head = reverseDoublyLL(head);
+
+    Node *temp = head;
+    std::cout << "nullptr <-> ";
+    while (temp != nullptr)
+    {
+        std::cout << temp->data << " <-> ";
+        temp = temp->next;
+    }
+    std::cout << "nullptr" << std::endl;
 
     return 0;
 }
