@@ -38,7 +38,7 @@ Node *reverseDoublyLL(Node *head)
         st.push(temp->data);
         temp = temp->next;
     }
-    
+
     temp = head;
     while (temp != nullptr)
     {
@@ -46,7 +46,7 @@ Node *reverseDoublyLL(Node *head)
         st.pop();
         temp = temp->next;
     }
-    
+
     return head;
 }
 
