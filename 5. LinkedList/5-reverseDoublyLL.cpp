@@ -57,6 +57,9 @@ Node *reverseDoublyLL(Node *head)
 
 Node *reverseDoublyLLBetter(Node *head)
 {
+    if(head == nullptr || head->next == nullptr)
+        return head;
+    
     Node *curr = head;
     Node *newHead = nullptr;
 
