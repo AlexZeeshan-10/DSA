@@ -19,12 +19,17 @@ Node *convertToDoublyLL(std::vector<int> &arr)
 {
     Node *head = new Node(arr[0]);
     Node *mover = head;
-    for (size_t i = 0; i < arr.size(); ++i)
+
+    for (size_t i = 1; i < arr.size(); i++)
     {
         Node *temp = new Node(arr[i]);
+
+        temp->prev = mover;
         mover->next = temp;
-        mover = mover->next;
+
+        mover = temp;
     }
+
     return head;
 }
 
@@ -50,6 +55,23 @@ Node *reverseDoublyLL(Node *head)
     return head;
 }
 
+Node *reverseDoublyLLBetter(Node *head)
+{
+    Node *curr = head;
+    Node *newHead = nullptr;
+
+    while (curr != nullptr)
+    {
+        Node *next = curr->next;
+        curr->next = curr->prev;
+        curr->prev = next;
+        newHead = curr;
+        curr = next;
+    }
+
+    return newHead;
+}
+
 int main()
 {
     int n;
@@ -62,7 +84,7 @@ int main()
 
     Node *head = convertToDoublyLL(arr);
 
-    head = reverseDoublyLL(head);
+    head = reverseDoublyLLBetter(head);
 
     Node *temp = head;
     std::cout << "nullptr <-> ";
