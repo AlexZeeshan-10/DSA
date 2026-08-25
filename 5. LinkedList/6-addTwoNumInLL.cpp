@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <vector>
 class Node
 {
 public:
@@ -16,5 +16,10 @@ public:
 int main(){
     int n;
     std::cin >> n;
+    std::vector<int> arr(n);
+    for (size_t i = 0; i < n; ++i)
+    {
+        std::cin >> arr[i];
+    }
     
 }
