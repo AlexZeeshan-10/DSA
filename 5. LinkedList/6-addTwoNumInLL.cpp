@@ -13,13 +13,25 @@ public:
         : data(data1), next(nullptr) {}
 };
 
-int main(){
-    int n;
-    std::cin >> n;
-    std::vector<int> arr(n);
-    for (size_t i = 0; i < n; ++i)
+Node *CreateLL(int x, int y){
+    std::vector<int> arrx;
+    while (x)
     {
-        std::cin >> arr[i];
+        arrx.push_back(x%10);
+        x /= 10;
     }
+    std::vector<int> arry;
+    while (y)
+    {
+        arry.push_back(y%10);
+        y /= 10;
+    }
+    
+}
+
+int main(){
+    int n1, n2;
+    std::cin >> n1;
+    std::cin >> n2;
     
 }
