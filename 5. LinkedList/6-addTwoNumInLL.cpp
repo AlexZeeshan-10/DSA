@@ -36,6 +36,10 @@ Node *CreateLL(int x)
     return head;
 }
 
+Node *addTwoNumbers(Node* l1, Node *l2){
+    
+}
+
 int main()
 {
     int n1, n2;
