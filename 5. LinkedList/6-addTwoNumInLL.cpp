@@ -17,6 +17,9 @@ public:
 
 Node *CreateLL(int x)
 {
+    if (x == 0)
+        return new Node(0);
+
     std::vector<int> arrx;
     while (x)
     {
@@ -24,7 +27,6 @@ Node *CreateLL(int x)
         x /= 10;
     }
 
-    std::reverse(arrx.begin(), arrx.end());
     Node *head = new Node(arrx[0]);
     Node *mover = head;
     for (size_t i = 1; i < arrx.size(); ++i)
@@ -43,6 +45,7 @@ Node *addTwoNumbers(Node *l1, Node *l2)
     Node *t1 = l1;
     Node *t2 = l2;
     int carry = 0;
+
     while (t1 != nullptr || t2 != nullptr)
     {
         int sum = carry;
@@ -60,14 +63,16 @@ Node *addTwoNumbers(Node *l1, Node *l2)
         if (t2)
             t2 = t2->next;
     }
+
     if (carry)
     {
         Node *leftCarry = new Node(carry);
         current->next = leftCarry;
     }
 
-    return dummyNode->next;
+    Node *result = dummyNode->next;
     delete dummyNode;
+    return result;
 }
 
 int main()
@@ -78,4 +83,15 @@ int main()
 
     std::cin >> n2;
     Node *l2 = CreateLL(n2);
+
+    Node *head = addTwoNumbers(l1, l2);
+    Node *temp = head;
+    while (temp)
+    {
+        std::cout << temp->data << "->";
+        temp = temp->next;
+    }
+    std::cout << "nullptr";
+
+    return 0;
 }
