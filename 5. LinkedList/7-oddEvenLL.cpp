@@ -28,7 +28,8 @@ Node *convertArrToLL(const std::vector<int> &arr)
     return head;
 }
 
-Node *oddEven(Node *head)
+//brute approach
+Node *oddEvenBrute(Node *head)
 {
     if (head == nullptr || head->next == nullptr)
         return head;
@@ -53,6 +54,18 @@ Node *oddEven(Node *head)
         arr.push_back(temp->data);
 
     return convertArrToLL(arr);
+}
+
+Node *oddEvenOpt(Node *head){
+    Node *odd = head;
+    Node *even = head->next;
+
+    Node *evenHead = even;
+    while (even != nullptr || even->next != nullptr)
+    {
+        
+    }
+    
 }
 
 int main()
