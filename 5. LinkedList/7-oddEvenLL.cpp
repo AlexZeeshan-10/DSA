@@ -15,7 +15,16 @@ public:
         : data(data1), next(nullptr) {}
 };
 
-
+Node *convertArrToLL(const std::vector<int> &arr)
+{
+    Node *head = new Node(arr[0]);
+    Node *mover = head;
+    for (size_t i = 1; i < arr.size(); ++i)
+    {
+        Node *temp = new Node(arr[i]);
+        
+    }
+}
 
 int main()
 {
@@ -26,4 +35,6 @@ int main()
     {
         std::cin >> arr[i];
     }
+
+    Node *head = convertArrToLL(arr);
 }
