@@ -28,10 +28,24 @@ Node *convertArrToLL(const std::vector<int> &arr)
     return head;
 }
 
-Node *oddEven(Node *head){
+Node *oddEven(Node *head)
+{
     std::vector<int> arr;
     Node *temp = head;
-    
+    while (temp != nullptr && temp->next != nullptr)
+    {
+        arr.push_back(temp->data);
+        temp = temp->next->next;
+    }
+    temp = head->next;
+    while (temp != nullptr && temp->next != nullptr)
+    {
+        arr.push_back(temp->data);
+        temp = temp->next->next;
+    }
+
+    arr.push_back(temp->data);
+    return convertArrToLL(arr);
 }
 
 int main()
@@ -61,7 +75,9 @@ int main()
         }
     }
 
-    Node *temp = head;
+    Node *head1 = oddEven(head);
+
+    Node *temp = head1;
 
     while (temp)
     {
