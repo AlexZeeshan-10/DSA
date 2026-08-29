@@ -61,11 +61,17 @@ Node *oddEvenOpt(Node *head){
     Node *even = head->next;
 
     Node *evenHead = even;
-    while (even != nullptr || even->next != nullptr)
+    while (even != nullptr && even->next != nullptr)
     {
-        
+       odd->next = odd->next->next;
+       even->next = even->next->next;
+
+       odd = odd->next;
+       even = even->next;
     }
+    odd->next = evenHead;
     
+    return head;
 }
 
 int main()
@@ -95,7 +101,7 @@ int main()
         }
     }
 
-    Node *head1 = oddEven(head);
+    Node *head1 = oddEvenOpt(head);
 
     Node *temp = head1;
 
