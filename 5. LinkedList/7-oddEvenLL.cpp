@@ -22,19 +22,48 @@ Node *convertArrToLL(const std::vector<int> &arr)
     for (size_t i = 1; i < arr.size(); ++i)
     {
         Node *temp = new Node(arr[i]);
-        
+        mover->next = temp;
+        mover = temp;
     }
+    return head;
 }
 
 int main()
 {
     int n;
     std::cin >> n;
-    std::vector<int> arr(n);
-    for (size_t i = 0; i < n; ++i)
+
+    Node *head = nullptr;
+    Node *tail = nullptr;
+
+    while (n--)
     {
-        std::cin >> arr[i];
+        int x;
+        std::cin >> x;
+
+        Node *temp = new Node(x);
+
+        if (head == nullptr)
+        {
+            head = temp;
+            tail = temp;
+        }
+        else
+        {
+            tail->next = temp;
+            tail = temp;
+        }
     }
 
-    Node *head = convertArrToLL(arr);
+    Node *temp = head;
+
+    while (temp)
+    {
+        std::cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+
+    std::cout << "nullptr" << std::endl;
+
+    return 0;
 }
