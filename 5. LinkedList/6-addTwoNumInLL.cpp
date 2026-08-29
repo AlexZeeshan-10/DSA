@@ -38,6 +38,7 @@ Node *CreateLL(int x)
     return head;
 }
 
+<<<<<<< HEAD
 Node *addTwoNumbers(Node *l1, Node *l2)
 {
     Node *dummyNode = new Node(-1);
@@ -73,6 +74,10 @@ Node *addTwoNumbers(Node *l1, Node *l2)
     Node *result = dummyNode->next;
     delete dummyNode;
     return result;
+=======
+Node *addTwoNumbers(Node* l1, Node *l2){
+    
+>>>>>>> 3cdcfe187e882deb113ce95072b9bb183a462bef
 }
 
 int main()
