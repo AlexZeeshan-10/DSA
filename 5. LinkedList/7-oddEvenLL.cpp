@@ -30,6 +30,9 @@ Node *convertArrToLL(const std::vector<int> &arr)
 
 Node *oddEven(Node *head)
 {
+    if (head == nullptr || head->next == nullptr)
+        return head;
+
     std::vector<int> arr;
     Node *temp = head;
     while (temp != nullptr && temp->next != nullptr)
