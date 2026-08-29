@@ -28,6 +28,12 @@ Node *convertArrToLL(const std::vector<int> &arr)
     return head;
 }
 
+Node *oddEven(Node *head){
+    std::vector<int> arr;
+    Node *temp = head;
+    
+}
+
 int main()
 {
     int n;
