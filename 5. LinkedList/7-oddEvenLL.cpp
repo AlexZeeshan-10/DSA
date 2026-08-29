@@ -37,14 +37,18 @@ Node *oddEven(Node *head)
         arr.push_back(temp->data);
         temp = temp->next->next;
     }
+    if (temp)
+        arr.push_back(temp->data);
+
     temp = head->next;
     while (temp != nullptr && temp->next != nullptr)
     {
         arr.push_back(temp->data);
         temp = temp->next->next;
     }
+    if (temp)
+        arr.push_back(temp->data);
 
-    arr.push_back(temp->data);
     return convertArrToLL(arr);
 }
 
