@@ -14,6 +14,10 @@ public:
         : data(data1), next(nullptr) {}
 };
 
+Node *sortAll(Node *head){
+    
+}
+
 int main()
 {
     int n;
@@ -39,4 +43,12 @@ int main()
             tail = temp;
         }
     }
+
+    Node *temp = head;
+    while (temp)
+    {
+        std::cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    std::cout << "nullptr";
 }
