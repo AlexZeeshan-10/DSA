@@ -16,7 +16,25 @@ public:
 
 Node *delNodeBrute(Node *head, int n)
 {
+    unsigned int cnt = 0;
+    Node *temp = head;
+    while (temp)
+    {
+        temp = temp->next;
+        cnt++;
+    }
+    int x = cnt - n;
+    temp = head;
+    while (x--)
+    {
+        temp = temp->next;
+    }
+    Node *delNode = temp->next;
+    temp->next = temp->next->next;
+
+    delete delNode;
     
+    return head;
 }
 
 int main()
