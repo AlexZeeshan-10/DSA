@@ -25,18 +25,26 @@ int main()
     {
         int x;
         std::cin >> x;
-        Node *temp = new Node(x);
+        Node *newNode = new Node(x);
 
         if (head == nullptr)
         {
-            head = temp;
-            tail = temp;
+            head = newNode;
+            tail = newNode;
         }
 
         else
         {
-            tail->next = temp;
-            tail = temp->next;
+            tail->next = newNode;
+            tail = tail->next;
         }
     }
+
+    Node *temp = head;
+    while (temp)
+    {
+        std::cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    std::cout << "nullptr";
 }
