@@ -14,16 +14,28 @@ public:
         : data(data1), next(nullptr) {}
 };
 
+/*
+    Better approach
+    Time complexity: O(length)
+    Space complexity: O(1)
+*/
 Node *delNodeBetter(Node *head, int n)
 {
-    Node *dummy = new Node(-1);
-    dummy->next = head;
+    Node *dummyNode = new Node(-1);
+    dummyNode->next = head;
 
-    Node *fast = dummy;
-    Node *slow = dummy;
+    Node *fast = dummyNode;
+    Node *slow = dummyNode;
 
     while (n--)
         fast = fast->next;
+
+    if (fast == nullptr)
+    {
+        Node *newNode = head->next;
+        delete head;
+        return newNode;
+    }
 
     while (fast->next != nullptr)
     {
@@ -36,8 +48,8 @@ Node *delNodeBetter(Node *head, int n)
 
     delete delNode;
 
-    Node *newHead = dummy->next;
-    delete dummy;
+    Node *newHead = dummyNode->next;
+    delete dummyNode;
 
     return newHead;
 }
