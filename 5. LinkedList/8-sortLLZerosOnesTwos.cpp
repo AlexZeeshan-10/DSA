@@ -14,8 +14,45 @@ public:
         : data(data1), next(nullptr) {}
 };
 
-Node *sortAll(Node *head){
-    
+Node *sortAll(Node *head)
+{
+    if (head == nullptr)
+        return head;
+
+    int cnt0 = 0, cnt1 = 0, cnt2 = 0;
+    Node *temp = head;
+    while (temp)
+    {
+        if (temp->data == 0)
+            cnt0++;
+        else if (temp->data == 1)
+            cnt1++;
+        else if (temp->data == 2)
+            cnt2++;
+        else
+            return head;
+
+        temp = temp->next;
+    }
+
+    temp = head;
+    while (cnt0--)
+    {
+        temp->data = 0;
+        temp = temp->next;
+    }
+    while (cnt1--)
+    {
+        temp->data = 1;
+        temp = temp->next;
+    }
+    while (cnt2--)
+    {
+        temp->data = 2;
+        temp = temp->next;
+    }
+
+    return head;
 }
 
 int main()
@@ -43,6 +80,8 @@ int main()
             tail = temp;
         }
     }
+
+    head = sortAll(head);
 
     Node *temp = head;
     while (temp)
