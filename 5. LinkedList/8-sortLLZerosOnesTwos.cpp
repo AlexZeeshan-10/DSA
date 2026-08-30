@@ -22,23 +22,23 @@ Node *sortAllBrute(Node *head)
 {
     if (head == nullptr)
         return head;
-        
+
     int cnt0 = 0, cnt1 = 0, cnt2 = 0;
     Node *temp = head;
     while (temp)
     {
         if (temp->data == 0)
-        cnt0++;
+            cnt0++;
         else if (temp->data == 1)
             cnt1++;
         else if (temp->data == 2)
             cnt2++;
         else
             return head;
-            
+
         temp = temp->next;
     }
-    
+
     temp = head;
     while (temp)
     {
@@ -53,7 +53,7 @@ Node *sortAllBrute(Node *head)
             temp->data = 1;
             cnt1--;
         }
-        
+
         else
         {
             temp->data = 2;
@@ -93,11 +93,17 @@ Node *sortAllBetter(Node *head)
             two->next = temp;
             two = two->next;
         }
+        temp = temp->next;
     }
     zero->next = oneHead->next;
     one->next = twoHead->next;
+    two->next = nullptr;
 
-    return head;
+    Node *ans = zeroHead->next;
+    delete zeroHead;
+    delete oneHead;
+    delete twoHead;
+    return ans;
 }
 
 // Main function
@@ -127,7 +133,7 @@ int main()
         }
     }
 
-    head = sortAllBrute(head);
+    head = sortAllBetter(head);
 
     Node *temp = head;
     while (temp)
