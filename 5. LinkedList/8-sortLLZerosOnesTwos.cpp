@@ -98,8 +98,8 @@ Node *sortAllBetter(Node *head)
         }
         temp = temp->next;
     }
-    zero->next = oneHead->next;
-    one->next = twoHead->next;
+    zero->next = (oneHead->next) ? oneHead->next : twoHead->next;
+    one->next = (twoHead->next) ? twoHead->next : nullptr;
     two->next = nullptr;
 
     Node *ans = zeroHead->next;
