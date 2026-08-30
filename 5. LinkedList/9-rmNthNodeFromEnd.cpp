@@ -15,6 +15,46 @@ public:
 };
 
 /*
+    Brute approach
+    Time complexity = O(2*length)
+    Space complexity = O(1)
+*/
+Node *delNodeBrute(Node *head, int n)
+{
+    if (head == nullptr || head->next == nullptr)
+        return nullptr;
+
+    int cnt = 0;
+    Node *temp = head;
+    while (temp)
+    {
+        temp = temp->next;
+        cnt++;
+    }
+
+    if (n == cnt)
+    {
+        Node *delNode = head;
+        head = head->next;
+        delete delNode;
+        return head;
+    }
+
+    int x = cnt - n;
+    temp = head;
+    while (--x)
+    {
+        temp = temp->next;
+    }
+    Node *delNode = temp->next;
+    temp->next = temp->next->next;
+
+    delete delNode;
+
+    return head;
+}
+
+/*
     Better approach
     Time complexity: O(length)
     Space complexity: O(1)
@@ -54,6 +94,7 @@ Node *delNodeBetter(Node *head, int n)
     return newHead;
 }
 
+// Main function
 int main()
 {
     int n;
@@ -79,6 +120,11 @@ int main()
             tail = tail->next;
         }
     }
+
+    int k;
+    std::cin >> k;
+
+    head = delNodeBrute(head, k);
 
     Node *temp = head;
     while (temp)
