@@ -13,3 +13,30 @@ public:
     Node(int data1)
         : data(data1), next(nullptr) {}
 };
+
+int main()
+{
+    int n;
+    std::cin >> n;
+
+    Node *head = nullptr;
+    Node *tail = nullptr;
+
+    while (n--)
+    {
+        int x;
+        std::cin >> x;
+        Node *temp = new Node(x);
+        if (head == nullptr)
+        {
+            head = temp;
+            tail = temp;
+        }
+
+        else
+        {
+            tail->next = temp;
+            tail = temp;
+        }
+    }
+}
