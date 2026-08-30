@@ -15,8 +15,8 @@ public:
 };
 
 /*Brute approach to sort the Linked List
-space complexity = o(1)
-time complexity = o(n)
+    Time complexity = O(2n) Two traversal, One for count another to place elements
+    Space complexity = O(1)
 */
 Node *sortAllBrute(Node *head)
 {
@@ -66,6 +66,10 @@ Node *sortAllBrute(Node *head)
     return head;
 }
 
+/* Better approach to sort the Linked List
+    Time complexity = O(n) one pass traversal
+    Space complexity = O(1)
+*/
 Node *sortAllBetter(Node *head)
 {
     if (head == nullptr || head->next == nullptr)
