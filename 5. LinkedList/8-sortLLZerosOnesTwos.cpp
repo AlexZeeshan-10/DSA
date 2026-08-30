@@ -42,6 +42,10 @@ Node *sortAllBetter(Node *head)
             two = two->next;
         }
     }
+    zero->next = oneHead->next;
+    one->next = twoHead->next;
+
+    return head;
 }
 
 int main()
