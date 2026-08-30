@@ -14,6 +14,10 @@ public:
         : data(data1), next(nullptr) {}
 };
 
+Node *sortAllBetter(Node *head){
+    
+}
+
 int main()
 {
     int n;
