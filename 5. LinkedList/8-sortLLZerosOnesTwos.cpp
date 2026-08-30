@@ -68,6 +68,9 @@ Node *sortAllBrute(Node *head)
 
 Node *sortAllBetter(Node *head)
 {
+    if (head == nullptr || head->next == nullptr)
+        return head;
+
     Node *zeroHead = new Node(-1);
     Node *oneHead = new Node(-1);
     Node *twoHead = new Node(-1);
