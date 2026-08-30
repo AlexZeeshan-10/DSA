@@ -14,6 +14,11 @@ public:
         : data(data1), next(nullptr) {}
 };
 
+
+Node *delNodeBetter(Node *head, int n){
+    
+}
+
 int main()
 {
     int n;
