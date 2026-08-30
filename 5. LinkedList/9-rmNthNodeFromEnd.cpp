@@ -14,9 +14,32 @@ public:
         : data(data1), next(nullptr) {}
 };
 
+Node *delNodeBetter(Node *head, int n)
+{
+    Node *dummy = new Node(-1);
+    dummy->next = head;
 
-Node *delNodeBetter(Node *head, int n){
-    
+    Node *fast = dummy;
+    Node *slow = dummy;
+
+    while (n--)
+        fast = fast->next;
+
+    while (fast->next != nullptr)
+    {
+        fast = fast->next;
+        slow = slow->next;
+    }
+
+    Node *delNode = slow->next;
+    slow->next = slow->next->next;
+
+    delete delNode;
+
+    Node *newHead = dummy->next;
+    delete dummy;
+
+    return newHead;
 }
 
 int main()
