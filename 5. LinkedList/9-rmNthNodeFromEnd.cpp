@@ -16,16 +16,25 @@ public:
 
 Node *delNodeBrute(Node *head, int n)
 {
-    unsigned int cnt = 0;
+    int cnt = 0;
     Node *temp = head;
     while (temp)
     {
         temp = temp->next;
         cnt++;
     }
+
+    if (n == cnt)
+    {
+        Node *delNode = head;
+        head = head->next;
+        delete delNode;
+        return head;
+    }
+
     int x = cnt - n;
     temp = head;
-    while (x--)
+    while (--x)
     {
         temp = temp->next;
     }
@@ -33,7 +42,7 @@ Node *delNodeBrute(Node *head, int n)
     temp->next = temp->next->next;
 
     delete delNode;
-    
+
     return head;
 }
 
@@ -66,7 +75,7 @@ int main()
     int k;
     std::cin >> k;
 
-    Node *head = delNodeBrute(head, k);
+    head = delNodeBrute(head, k);
 
     Node *temp = head;
     while (temp)
