@@ -14,8 +14,14 @@ public:
         : data(data1), next(nullptr) {}
 };
 
+/*
+    Brute approach
+*/
 Node *delNodeBrute(Node *head, int n)
 {
+    if (head == nullptr || head->next == nullptr)
+        return nullptr;
+
     int cnt = 0;
     Node *temp = head;
     while (temp)
@@ -46,6 +52,7 @@ Node *delNodeBrute(Node *head, int n)
     return head;
 }
 
+// Main function
 int main()
 {
     int n;
