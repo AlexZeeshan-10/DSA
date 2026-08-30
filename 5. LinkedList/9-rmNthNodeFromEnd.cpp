@@ -16,6 +16,8 @@ public:
 
 /*
     Brute approach
+    Time complexity = O(2*length)
+    Space complexity = O(1)
 */
 Node *delNodeBrute(Node *head, int n)
 {
