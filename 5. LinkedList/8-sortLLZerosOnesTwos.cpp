@@ -14,7 +14,11 @@ public:
         : data(data1), next(nullptr) {}
 };
 
-Node *sortAll(Node *head)
+/*Brute approach to sort the Linked List
+    space complexity = o(1)
+    time complexity = o(n)
+*/
+Node *sortAllBrute(Node *head)
 {
     if (head == nullptr)
         return head;
@@ -55,6 +59,7 @@ Node *sortAll(Node *head)
     return head;
 }
 
+// Main function
 int main()
 {
     int n;
@@ -81,7 +86,7 @@ int main()
         }
     }
 
-    head = sortAll(head);
+    head = sortAllBrute(head);
 
     Node *temp = head;
     while (temp)
