@@ -40,19 +40,26 @@ Node *sortAllBrute(Node *head)
     }
 
     temp = head;
-    while (cnt0--)
+    while (temp)
     {
-        temp->data = 0;
-        temp = temp->next;
-    }
-    while (cnt1--)
-    {
-        temp->data = 1;
-        temp = temp->next;
-    }
-    while (cnt2--)
-    {
-        temp->data = 2;
+        if (cnt0)
+        {
+            temp->data = 0;
+            cnt0--;
+        }
+
+        else if (cnt1)
+        {
+            temp->data = 1;
+            cnt1--;
+        }
+
+        else
+        {
+            temp->data = 2;
+            cnt2--;
+        }
+
         temp = temp->next;
     }
 
