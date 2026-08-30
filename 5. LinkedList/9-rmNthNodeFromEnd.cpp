@@ -14,6 +14,11 @@ public:
         : data(data1), next(nullptr) {}
 };
 
+Node *delNodeBrute(Node *head, int n)
+{
+    
+}
+
 int main()
 {
     int n;
@@ -39,6 +44,11 @@ int main()
             tail = tail->next;
         }
     }
+
+    int k;
+    std::cin >> k;
+
+    Node *head = delNodeBrute(head, k);
 
     Node *temp = head;
     while (temp)
