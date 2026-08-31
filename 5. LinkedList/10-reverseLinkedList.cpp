@@ -14,6 +14,11 @@ public:
         : data(data1), next(nullptr) {}
 };
 
+/*
+    Stack(Extra space) approach
+    Time Complexity:O(n)
+    Space Complexity: O(n)
+*/
 Node *stackRev(Node *head)
 {
     if (head == nullptr)
