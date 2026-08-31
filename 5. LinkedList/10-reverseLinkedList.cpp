@@ -66,6 +66,23 @@ Node *revBetter(Node *head)
     return prev;
 }
 
+/*
+    Recursive Approach
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+*/
+Node *recRev(Node *head)
+{
+    if (head == nullptr || head->next == nullptr)
+        return head;
+
+    Node *newHead = recRev(head->next);
+    Node *front = head->next;
+    front->next = head;
+    head->next = nullptr;
+    return newHead;
+}
+
 int main()
 {
     int n;
@@ -92,6 +109,8 @@ int main()
             tail = tail->next;
         }
     }
+
+    head = recRev(head);
 
     Node *temp = head;
     while (temp)
