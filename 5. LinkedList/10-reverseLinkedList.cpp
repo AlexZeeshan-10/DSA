@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <stack>
 class Node
 {
 public:
@@ -13,6 +13,11 @@ public:
     Node(int data1)
         : data(data1), next(nullptr) {}
 };
+
+Node *stackRev(Node *head)
+{
+    
+}
 
 int main()
 {
