@@ -42,6 +42,30 @@ Node *stackRev(Node *head)
     return head;
 }
 
+/*
+    Better approach
+    Time complexity: O(n)
+    Space complexity: O(1)
+*/
+Node *revBetter(Node *head)
+{
+    if (head == nullptr)
+        return nullptr;
+
+    Node *temp = head;
+    Node *prev = nullptr;
+    Node *front = nullptr;
+    
+    while (temp)
+    {
+        front = temp->next;
+        temp->next = prev;
+        prev = temp;
+        temp = front;
+    }
+    return prev;
+}
+
 int main()
 {
     int n;
