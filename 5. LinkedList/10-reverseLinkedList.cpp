@@ -13,3 +13,6 @@ public:
         : data(data1), next(nullptr){}
 };
 
+int main(){
+    
+}
