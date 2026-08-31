@@ -16,7 +16,14 @@ public:
 
 Node *recRev(Node *head)
 {
-    
+    if (head == nullptr || head->next == nullptr)
+        return head;
+
+    Node *newHead = recRev(head->next);
+    Node *front = head->next;
+    front->next = head;
+    head->next = nullptr;
+    return newHead;
 }
 
 int main()
