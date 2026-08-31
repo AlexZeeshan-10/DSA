@@ -14,8 +14,22 @@ public:
         : data(data1), next(nullptr) {}
 };
 
-Node *revBetter(Node *head){
-    
+Node *revBetter(Node *head)
+{
+    if (head == nullptr)
+        return nullptr;
+
+    Node *temp = head;
+    Node *prev = nullptr;
+    Node *front = nullptr;
+    while (temp)
+    {
+        front = temp->next;
+        temp->next = prev;
+        prev = temp;
+        temp = front;
+    }
+    return prev;
 }
 
 int main()
@@ -44,7 +58,7 @@ int main()
             tail = tail->next;
         }
     }
-
+    
     Node *temp = head;
     while (temp)
     {
