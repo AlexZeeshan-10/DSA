@@ -14,6 +14,11 @@ public:
         : data(data1), next(nullptr) {}
 };
 
+/*
+    Better approach
+    Time complexity: O(n)
+    Space complexity: O(1)
+*/
 Node *revBetter(Node *head)
 {
     if (head == nullptr)
@@ -58,7 +63,7 @@ int main()
             tail = tail->next;
         }
     }
-    
+
     Node *temp = head;
     while (temp)
     {
