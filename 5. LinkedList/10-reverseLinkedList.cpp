@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stack>
+
 class Node
 {
 public:
@@ -83,6 +84,7 @@ Node *recRev(Node *head)
     return newHead;
 }
 
+// Main function
 int main()
 {
     int n;
