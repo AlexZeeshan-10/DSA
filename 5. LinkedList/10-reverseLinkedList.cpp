@@ -14,6 +14,11 @@ public:
         : data(data1), next(nullptr) {}
 };
 
+Node *recRev(Node *head)
+{
+    
+}
+
 int main()
 {
     int n;
@@ -40,6 +45,8 @@ int main()
             tail = tail->next;
         }
     }
+
+    head = recRev(head);
 
     Node *temp = head;
     while (temp)
