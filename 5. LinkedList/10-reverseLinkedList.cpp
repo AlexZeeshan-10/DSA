@@ -16,7 +16,25 @@ public:
 
 Node *stackRev(Node *head)
 {
-    
+    if (head == nullptr)
+        return nullptr;
+
+    std::stack<int> st;
+    Node *temp = head;
+    while (temp)
+    {
+        st.push(temp->data);
+        ;
+        temp = temp->next;
+    }
+    temp = head;
+    while (temp)
+    {
+        temp->data = st.top();
+        st.pop();
+        temp = temp->next;
+    }
+    return head;
 }
 
 int main()
