@@ -14,6 +14,11 @@ public:
         : data(data1), next(nullptr) {}
 };
 
+/*
+    Recursive Approach
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+*/
 Node *recRev(Node *head)
 {
     if (head == nullptr || head->next == nullptr)
