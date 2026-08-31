@@ -27,6 +27,7 @@ Node *revBetter(Node *head)
     Node *temp = head;
     Node *prev = nullptr;
     Node *front = nullptr;
+    
     while (temp)
     {
         front = temp->next;
