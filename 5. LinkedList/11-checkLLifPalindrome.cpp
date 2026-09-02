@@ -40,11 +40,5 @@ int main()
         }
     }
 
-    Node *temp = head;
-    while (temp)
-    {
-        std::cout << temp->data << " -> ";
-        temp = temp->next;
-    }
-    std::cout << "nullptr" << std::endl;
+    std::cout << (isPalindromeBrute(head) == 1 ? "True" : "False");
 }
