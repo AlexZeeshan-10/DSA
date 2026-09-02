@@ -14,8 +14,29 @@ public:
         : data(data), next(nullptr) {}
 };
 
-Node *middleNodeBrute(Node *head){
-    
+Node *middleNodeBrute(Node *head)
+{
+    if (head == nullptr)
+        return nullptr;
+
+    Node *temp = head;
+    int cnt = 0;
+
+    while (temp != nullptr)
+    {
+        cnt++;
+        temp = temp->next;
+    }
+
+    cnt = (cnt / 2) + 1;
+
+    temp = head;
+    while (--cnt)
+    {
+        temp = temp->next;
+    }
+
+    return temp;
 }
 
 int main()
