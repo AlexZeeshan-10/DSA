@@ -14,6 +14,10 @@ public:
         : data(data), next(nullptr) {}
 };
 
+Node *middleNodeBrute(Node *head){
+    
+}
+
 int main()
 {
     int n;
