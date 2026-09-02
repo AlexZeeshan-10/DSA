@@ -39,6 +39,5 @@ int main()
             tail = tail->next;
         }
     }
-
-    // std::cout << (isPalindromeBrute(head) == 1 ? "True" : "False");
+    return 0;
 }
