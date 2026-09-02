@@ -39,4 +39,12 @@ int main()
             tail = tail->next;
         }
     }
+
+    Node *temp = head;
+    while (temp)
+    {
+        std::cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    std::cout << "nullptr" << std::endl;
 }
