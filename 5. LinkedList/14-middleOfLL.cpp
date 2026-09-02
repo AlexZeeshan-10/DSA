@@ -28,10 +28,10 @@ Node *middleNodeBrute(Node *head)
         temp = temp->next;
     }
 
-    cnt = (cnt / 2) + 1;
+    cnt = (cnt / 2);
 
     temp = head;
-    while (--cnt)
+    while (cnt)
     {
         temp = temp->next;
     }
@@ -64,5 +64,16 @@ int main()
             tail = tail->next;
         }
     }
+
+    head = middleNodeBrute(head);
+    Node *temp = head;
+
+    while (temp)
+    {
+        std::cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    std::cout << " nullptr ";
+
     return 0;
 }
