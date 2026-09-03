@@ -77,7 +77,13 @@ int main()
         }
     }
 
-    
+    head = middleNodeBetter(head);
+    Node *temp = head;
+    while (temp)
+    {
+        std::cout << temp->data << " -> ";
+    }
+    std::cout << "nullptr";
 
     return 0;
 }
