@@ -14,8 +14,16 @@ public:
         : data(data), next(nullptr) {}
 };
 
-Node *middleNodeBetter(Node *head){
-    
+Node *middleNodeBetter(Node *head)
+{
+    Node *slow = head;
+    Node *fast = head;
+    while (fast != nullptr && fast->next != nullptr)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    return slow;
 }
 
 int main()
@@ -43,5 +51,14 @@ int main()
             tail = tail->next;
         }
     }
+
+    head = middleNodeBetter(head);
+    Node *temp = head;
+    while (temp)
+    {
+        std::cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    std::cout << "nullptr";
     return 0;
 }
