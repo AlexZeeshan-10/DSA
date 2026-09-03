@@ -22,7 +22,7 @@ Node *middleNodeBrute(Node *head)
     Node *temp = head;
     int cnt = 0;
 
-    while (temp != nullptr)
+    while (temp)
     {
         cnt++;
         temp = temp->next;
@@ -31,7 +31,7 @@ Node *middleNodeBrute(Node *head)
     cnt = (cnt / 2);
 
     temp = head;
-    while (cnt)
+    while (cnt--)
     {
         temp = temp->next;
     }
