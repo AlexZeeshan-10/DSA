@@ -14,6 +14,31 @@ public:
         : data(data), next(nullptr) {}
 };
 
+Node *middleNodeBrute(Node *head)
+{
+    if (head == nullptr)
+        return nullptr;
+
+    Node *temp = head;
+    int cnt = 0;
+
+    while (temp)
+    {
+        cnt++;
+        temp = temp->next;
+    }
+
+    cnt = (cnt / 2);
+
+    temp = head;
+    while (cnt--)
+    {
+        temp = temp->next;
+    }
+
+    return temp;
+}
+
 int main()
 {
     int n;
@@ -39,5 +64,16 @@ int main()
             tail = tail->next;
         }
     }
+
+    head = middleNodeBrute(head);
+    Node *temp = head;
+
+    while (temp)
+    {
+        std::cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    std::cout << " nullptr ";
+
     return 0;
 }
