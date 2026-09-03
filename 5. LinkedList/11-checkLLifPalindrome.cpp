@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stack>
 
 class Node
 {
@@ -13,6 +14,26 @@ public:
     Node(int data)
         : data(data), next(nullptr) {}
 };
+
+bool isPalindromeBrute(Node *head)
+{
+    std::stack<int> st;
+    Node *temp = head;
+    while (temp)
+    {
+        st.push(temp->data);
+        temp = temp->next;
+    }
+    temp = head;
+    while (temp)
+    {
+        if (temp->data != st.top())
+            return false;
+        st.pop();
+        temp = temp->next;
+    }
+    return true;
+}
 
 int main()
 {
@@ -40,5 +61,5 @@ int main()
         }
     }
 
-    // std::cout << (isPalindromeBrute(head) == 1 ? "True" : "False");
+    std::cout << (isPalindromeBrute(head) == 1 ? "True" : "False");
 }
