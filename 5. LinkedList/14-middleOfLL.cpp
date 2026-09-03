@@ -14,6 +14,10 @@ public:
         : data(data), next(nullptr) {}
 };
 
+Node *middleNodeBetter(Node *head){
+    
+}
+
 int main()
 {
     int n;
