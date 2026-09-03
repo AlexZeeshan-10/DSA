@@ -14,6 +14,10 @@ public:
         : data(data), next(nullptr) {}
 };
 
+bool isPalindromeBetter(Node *head){
+    
+}
+
 int main()
 {
     int n;
