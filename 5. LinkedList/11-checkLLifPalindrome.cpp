@@ -35,6 +35,45 @@ bool isPalindromeBrute(Node *head)
     return true;
 }
 
+Node *reverse(Node *curr)
+{
+    Node *prev = nullptr;
+
+    while (curr != nullptr)
+    {
+        Node *next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+}
+
+bool isPalindromeBetter(Node *head)
+{
+    Node *slow = head;
+    Node *fast = head;
+    while (fast->next != nullptr && fast->next->next != nullptr)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    Node *newHead = reverse(slow->next);
+
+    Node *first = head, *second = newHead;
+    while (second)
+    {
+        if (first->data != second->data)
+        {
+            reverse(newHead);
+            return false;
+        }
+        first = first->next;
+        second = second->next;
+    }
+    return true;
+}
+
 int main()
 {
     int n;
