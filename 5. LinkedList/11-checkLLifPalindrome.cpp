@@ -46,6 +46,7 @@ Node *reverse(Node *curr)
         prev = curr;
         curr = next;
     }
+    return prev;
 }
 
 bool isPalindromeBetter(Node *head)

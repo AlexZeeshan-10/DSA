@@ -14,6 +14,20 @@ public:
         : data(data), next(nullptr) {}
 };
 
+Node *reverseNode(Node *curr){
+    Node *prev = nullptr;
+    while (curr)
+    {
+        Node *front = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = front;
+    }
+    return prev;
+}
+
+
+
 int main()
 {
     int n;
