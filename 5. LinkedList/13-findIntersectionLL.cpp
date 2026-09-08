@@ -14,6 +14,10 @@ public:
         : data(data), next(nullptr) {}
 };
 
+Node *collisionPoint(Node *head1, Node *head2, int n){
+    
+}
+
 Node *intersectionNodeBetter(Node *head1, Node *head2){
     int n1 = 0, n2 = 0;
     Node *temp1 = head1, *temp2 = head2;
