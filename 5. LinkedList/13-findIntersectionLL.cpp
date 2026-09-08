@@ -15,7 +15,23 @@ public:
 };
 
 Node *intersectionNodeBetter(Node *head1, Node *head2){
+    int n1 = 0, n2 = 0;
+    Node *temp1 = head1, *temp2 = head2;
+    while (temp1)
+    {
+        n1++;
+        temp1 = temp1->next;
+    }
+    while (temp2)
+    {
+        n2++;
+        temp2 = temp2->next;
+    }
     
+    if(n1 < n2)
+        return collisionPoint(head1, head2, n2-n1);
+    else
+        return collisionPoint(head2, head1, n1-n2);
 }
 
 int main()
