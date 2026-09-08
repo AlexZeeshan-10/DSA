@@ -51,6 +51,10 @@ Node *intersectionNodeBetter(Node *head1, Node *head2)
     return nullptr;
 }
 
+Node *intersectionNodeOptimal(Node *head1, Node*head2){
+    
+}
+
 int main()
 {
     int n;
