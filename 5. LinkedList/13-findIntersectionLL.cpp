@@ -1,4 +1,5 @@
 #include <iostream>
+#include <map>
 
 class Node
 {
@@ -14,55 +15,76 @@ public:
         : data(data), next(nullptr) {}
 };
 
+Node *intersectionNodeBrute(Node *head1, Node *head2)
+{
+    std::map<Node *, int> mpp;
+    Node *temp = head1;
+
+    while (temp)
+    {
+        mpp[temp] = 1;
+        temp = temp->next;
+    }
+
+    temp = head2;
+    while (temp)
+    {
+        if (mpp.find(temp) != mpp.end())
+            return temp;
+
+        temp = temp->next;
+    }
+
+    return nullptr;
+}
+
 int main()
 {
     int n;
     std::cin >> n;
 
-    Node *head = nullptr;
-    Node *tail = nullptr;
+    Node *head1 = nullptr;
+    Node *tail1 = nullptr;
 
     while (n--)
     {
         int x;
         std::cin >> x;
         Node *temp = new Node(x);
-        if (head == nullptr)
+        if (head1 == nullptr)
         {
-            head = temp;
-            tail = temp;
+            head1 = temp;
+            tail1 = temp;
         }
 
         else
         {
-            tail->next = temp;
-            tail = tail->next;
+            tail1->next = temp;
+            tail1 = tail1->next;
         }
     }
 
     int n;
     std::cin >> n;
 
-    Node *head = nullptr;
-    Node *tail = nullptr;
+    Node *head2 = nullptr;
+    Node *tail2 = nullptr;
 
     while (n--)
     {
         int x;
         std::cin >> x;
         Node *temp = new Node(x);
-        if (head == nullptr)
+        if (head2 == nullptr)
         {
-            head = temp;
-            tail = temp;
+            head2 = temp;
+            tail2 = temp;
         }
 
         else
         {
-            tail->next = temp;
-            tail = tail->next;
+            tail2->next = temp;
+            tail2 = tail2->next;
         }
     }
-
-    
 }
