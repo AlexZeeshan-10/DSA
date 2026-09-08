@@ -131,8 +131,8 @@ This repository uses **GitHub Actions** to automatically maintain its health and
 | 2. Sorting Techniques | 3 |
 | 3. Array Problems | 28 |
 | 4. Binary Search | 27 |
-| 5. LinkedList | 11 |
-| **Total** | **83** |
+| 5. LinkedList | 13 |
+| **Total** | **85** |
 
 <!-- PROGRESS_TRACKER_END -->
 
