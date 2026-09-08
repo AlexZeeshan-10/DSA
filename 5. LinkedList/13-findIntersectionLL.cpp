@@ -14,6 +14,10 @@ public:
         : data(data), next(nullptr) {}
 };
 
+Node *intersectionNodeBetter(Node *head1, Node *head2){
+    
+}
+
 int main()
 {
     int n;
