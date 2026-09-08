@@ -40,11 +40,29 @@ int main()
         }
     }
 
-    Node *temp = head;
-    while (temp)
+    int n;
+    std::cin >> n;
+
+    Node *head = nullptr;
+    Node *tail = nullptr;
+
+    while (n--)
     {
-        std::cout << temp->data << " -> ";
-        temp = temp->next;
+        int x;
+        std::cin >> x;
+        Node *temp = new Node(x);
+        if (head == nullptr)
+        {
+            head = temp;
+            tail = temp;
+        }
+
+        else
+        {
+            tail->next = temp;
+            tail = tail->next;
+        }
     }
-    std::cout << "nullptr";
+
+    
 }
