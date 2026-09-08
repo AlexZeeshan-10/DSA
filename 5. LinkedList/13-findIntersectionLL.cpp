@@ -71,7 +71,7 @@ Node *intersectionNodeBetter(Node *head1, Node *head2)
         return collisionPoint(head1, head2, n2 - n1);
     else
         return collisionPoint(head2, head1, n1 - n2);
-    
+
     return nullptr;
 }
 
