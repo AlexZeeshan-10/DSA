@@ -52,7 +52,23 @@ Node *intersectionNodeBetter(Node *head1, Node *head2)
 }
 
 Node *intersectionNodeOptimal(Node *head1, Node*head2){
+    if (head1 == nullptr || head2 == nullptr)
+        return nullptr;
     
+    Node *t1 = head1, *t2 = head2;
+    
+    while (t1 != t2)
+    {
+        t1 = t1->next;
+        t2 = t2->next;
+
+        if(t1 == t2) return t1;
+
+        if (t1 == nullptr) t1 = head2;
+        if (t2 == nullptr) t2 = head1;
+        
+    }
+    return t1;
 }
 
 int main()
