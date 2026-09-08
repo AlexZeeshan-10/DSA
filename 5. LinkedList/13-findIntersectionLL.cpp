@@ -14,11 +14,22 @@ public:
         : data(data), next(nullptr) {}
 };
 
-Node *collisionPoint(Node *head1, Node *head2, int n){
-    
+Node *collisionPoint(Node *t1, Node *t2, int d)
+{
+    while (d--)
+    {
+        t2 = t2->next;
+    }
+    while (t1 != t2)
+    {
+        t1 = t1->next;
+        t2 = t2->next;
+    }
+    return t1;
 }
 
-Node *intersectionNodeBetter(Node *head1, Node *head2){
+Node *intersectionNodeBetter(Node *head1, Node *head2)
+{
     int n1 = 0, n2 = 0;
     Node *temp1 = head1, *temp2 = head2;
     while (temp1)
@@ -31,11 +42,13 @@ Node *intersectionNodeBetter(Node *head1, Node *head2){
         n2++;
         temp2 = temp2->next;
     }
-    
-    if(n1 < n2)
-        return collisionPoint(head1, head2, n2-n1);
+
+    if (n1 < n2)
+        return collisionPoint(head1, head2, n2 - n1);
     else
-        return collisionPoint(head2, head1, n1-n2);
+        return collisionPoint(head2, head1, n1 - n2);
+    
+    return nullptr;
 }
 
 int main()
@@ -87,6 +100,4 @@ int main()
             tail = tail->next;
         }
     }
-
-    
 }
