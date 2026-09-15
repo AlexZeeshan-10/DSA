@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unordered_map>
 
 class Node
 {
@@ -14,9 +15,21 @@ public:
         : data(data1), next(nullptr) {}
 };
 
-int main(){
+bool hasCycle(Node *head)
+{
+    if (head == nullptr || head->next == nullptr)
+    {
+        return false;
+    }
+
+    Node *temp = head;
+    std::unordered_map<Node *, int> mpp;
+}
+
+int main()
+{
     int n;
-    std::cin>>n;
+    std::cin >> n;
 
     Node *head = nullptr;
     Node *tail = nullptr;
@@ -27,15 +40,16 @@ int main(){
         std::cin >> x;
 
         Node *temp = new Node(x);
-        if(head == nullptr){
+        if (head == nullptr)
+        {
             head = temp;
             tail = temp;
         }
-        
-        else{
+
+        else
+        {
             tail->next = temp;
             tail = tail->next;
         }
     }
-    
 }
