@@ -14,9 +14,33 @@ public:
         : data(data1), next(nullptr) {}
 };
 
-int main(){
+bool hasCycleBetter(Node *head)
+{
+    if (head == nullptr || head->next == nullptr)
+    {
+        return false;
+    }
+
+    Node *slow = head;
+    Node *fast = head;
+
+    while (fast != nullptr && fast->next != nullptr)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if (slow == fast)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+int main()
+{
     int n;
-    std::cin>>n;
+    std::cin >> n;
 
     Node *head = nullptr;
     Node *tail = nullptr;
@@ -27,15 +51,16 @@ int main(){
         std::cin >> x;
 
         Node *temp = new Node(x);
-        if(head == nullptr){
+        if (head == nullptr)
+        {
             head = temp;
             tail = temp;
         }
-        
-        else{
+
+        else
+        {
             tail->next = temp;
             tail = tail->next;
         }
     }
-    
 }
