@@ -97,13 +97,13 @@ Node *intersectionNodeOptimal(Node *head1, Node*head2){
 
 int main()
 {
-    int n;
-    std::cin >> n;
+    int n1;
+    std::cin >> n1;
 
     Node *head1 = nullptr;
     Node *tail1 = nullptr;
 
-    while (n--)
+    while (n1--)
     {
         int x;
         std::cin >> x;
@@ -121,13 +121,13 @@ int main()
         }
     }
 
-    int n;
-    std::cin >> n;
+    int n2;
+    std::cin >> n2;
 
     Node *head2 = nullptr;
     Node *tail2 = nullptr;
 
-    while (n--)
+    while (n2--)
     {
         int x;
         std::cin >> x;
