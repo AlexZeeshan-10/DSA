@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unordered_map>
 
 class Node
 {
@@ -13,6 +14,27 @@ public:
     Node(int data1)
         : data(data1), next(nullptr) {}
 };
+
+bool hasCycle(Node *head)
+{
+    if (head == nullptr || head->next == nullptr)
+    {
+        return false;
+    }
+
+    Node *temp = head;
+    std::unordered_map<Node *, int> mpp;
+    while (temp)
+    {
+        if (mpp.find(temp) == mpp.end())
+            return true;
+        else
+            mpp[temp] = 1;
+
+        temp = temp->next;
+    }
+    return false;
+}
 
 bool hasCycleBetter(Node *head)
 {
@@ -38,6 +60,7 @@ bool hasCycleBetter(Node *head)
 }
 
 int main()
+
 {
     int n;
     std::cin >> n;
