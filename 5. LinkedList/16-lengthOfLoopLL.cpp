@@ -15,9 +15,27 @@ public:
         : data(data1), next(nullptr) {}
 };
 
-int 
+int loopLengthBrute(Node *head)
+{
+    int cnt = 0;
+    Node *temp = head;
+    std::unordered_map<Node *, int> mpp;
+    while (temp)
+    {
+        if (mpp.find(temp) != mpp.end())
+        {
+            int val = mpp[temp];
+            return cnt - val;
+        }
+        cnt++;
+        mpp[temp] = cnt;
+        temp = temp->next;
+    }
+    return 0;
+}
 
-int main(){
+int main()
+{
     int n;
     std::cin >> n;
 
