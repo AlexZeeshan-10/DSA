@@ -59,9 +59,7 @@ bool hasCycleBetter(Node *head)
     return false;
 }
 
-int main()
-
-{
+int main(){
     int n;
     std::cin >> n;
 
