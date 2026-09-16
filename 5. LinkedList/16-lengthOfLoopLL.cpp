@@ -34,27 +34,31 @@ int loopLengthBrute(Node *head)
     return 0;
 }
 
-int loopLengthBetter(Node *head)
+int loopLengthBetter(Node* head)
 {
-    Node *slow = head;
-    Node *fast = head;
+    Node* slow = head;
+    Node* fast = head;
 
-    while (fast)
+    while (fast && fast->next)
     {
+        slow = slow->next;
+        fast = fast->next->next;
+
         if (fast == slow)
         {
             int cnt = 1;
             fast = fast->next;
+
             while (fast != slow)
             {
                 cnt++;
                 fast = fast->next;
             }
+
             return cnt;
         }
-        slow = slow->next;
-        fast = fast->next->next;
     }
+
     return 0;
 }
 
