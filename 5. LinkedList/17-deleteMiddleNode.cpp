@@ -14,7 +14,50 @@ public:
         : data(data1), next(nullptr) {}
 };
 
-int main(){
+Node *deleteMiddleBrute(Node *head)
+{
+    if (head->next == nullptr)
+        return nullptr;
+
+    if (head->next->next == nullptr)
+    {
+        Node *t = head->next;
+        head->next = nullptr;
+        delete t;
+        return head;
+    }
+
+    Node *slow = head;
+    Node *fast = head;
+    Node *front = head->next;
+    Node *prev = nullptr;
+
+    while (fast->next != nullptr && fast->next->next != nullptr)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+        front = front->next;
+        if (prev == nullptr)
+            prev = head;
+        else
+            prev = prev->next;
+    }
+
+    if (fast->next == nullptr)
+    {
+        prev->next = prev->next->next;
+        delete slow;
+        return head;
+    }
+
+    slow->next = slow->next->next;
+    delete front;
+
+    return head;
+}
+
+int main()
+{
     int n;
     std::cin >> n;
 
@@ -26,16 +69,18 @@ int main(){
         int x;
         std::cin >> x;
         Node *temp = new Node(x);
-        if(head == nullptr){
+        if (head == nullptr)
+        {
             head = temp;
             tail = temp;
         }
-        else{
+        else
+        {
             tail->next = temp;
             tail = tail->next;
         }
     }
-    
+
     Node *temp = head;
     while (temp)
     {
