@@ -1,6 +1,8 @@
 #include <iostream>
+#include <unordered_map>
 
-class Node{
+class Node
+{
 public:
     int data;
     Node *next;
@@ -8,15 +10,33 @@ public:
 public:
     Node(int data1, Node *next1)
         : data(data1), next(next1) {}
-    
+
     Node(int data1)
         : data(data1), next(nullptr) {}
 };
 
-int main(){
+Node *detectCycleBrute(Node *head)
+{
+    Node *temp = head;
+    std::unordered_map<Node *, int> mpp;
+
+    while (temp)
+    {
+        mpp[temp] = 1;
+        temp = temp->next;
+        if (mpp.find(temp) != mpp.end())
+        {
+            return temp;
+        }
+    }
+    return nullptr;
+}
+
+int main()
+{
     int n;
     std::cin >> n;
-    
+
     Node *head = nullptr;
     Node *tail = nullptr;
 
@@ -25,14 +45,15 @@ int main(){
         int x;
         std::cin >> x;
         Node *temp = new Node(x);
-        if(head == nullptr){
+        if (head == nullptr)
+        {
             head = temp;
             tail = temp;
         }
-        else{
+        else
+        {
             tail->next = temp;
             tail = temp;
         }
     }
-    
 }
