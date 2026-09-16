@@ -13,6 +13,10 @@ public:
         : data(data1), next(nullptr) {}
 };
 
+Node *detectCycleBetter(Node *head){
+    
+}
+
 int main(){
     int n;
     std::cin >> n;
