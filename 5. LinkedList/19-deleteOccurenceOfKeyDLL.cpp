@@ -15,6 +15,10 @@ public:
         : prev(nullptr), data(data1), next(nullptr) {}
 };
 
+Node *deleteOccurence(Node *head, int k){
+    
+}
+
 int main()
 {
     int n;
@@ -55,7 +59,7 @@ int main()
     int k;
     std::cin >> k;
 
-    head = deleteOccurence(head);
+    head = deleteOccurence(head, k);
 
     temp = head;
     std::cout << "nullptr <-> ";
