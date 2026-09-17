@@ -23,7 +23,7 @@ std::vector<std::vector<int>> findPair(Node *head, int sum)
     while (temp1)
     {
         Node *temp2 = temp1->next;
-        while (temp2)
+        while (temp2 && (temp1->data + temp2->data) <= sum)
         {
             if (temp1->data + temp2->data == sum)
                 ans.push_back({temp1->data, temp2->data});
@@ -72,16 +72,17 @@ int main()
     int sum;
     std::cin >> sum;
 
-    std::vector<std::vector<int>> ans = findPair(head, sum);
+    // std::vector<std::vector<int>> ans = findPair(head, sum);
 
-    for (size_t i = 0; i < ans.size(); ++i)
-    {
-        for (size_t j = 0; j < ans[i].size(); ++j)
-        {
-            std::cout << ans[i][j] << " ";
-        }
+    // for (size_t i = 0; i < ans.size(); ++i)
+    // {
+    //     for (size_t j = 0; j < ans[i].size(); ++j)
+    //     {
+    //         std::cout << ans[i][j] << " ";
+    //     }
 
-        std::cout << '\n';
-    }
+    //     std::cout << '\n';
+    // }
+
     return 0;
 }
