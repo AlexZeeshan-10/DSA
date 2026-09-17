@@ -35,6 +35,11 @@ std::vector<std::vector<int>> findPair(Node *head, int sum)
     return ans;
 }
 
+std::vector<std::vector <int>> findPairBetter(Node *head){
+    std::vector<std::vector <int>> ans;
+    
+}
+
 int main()
 {
     int n;
