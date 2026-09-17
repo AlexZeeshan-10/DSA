@@ -35,9 +35,9 @@ std::vector<std::vector<int>> findPair(Node *head, int sum)
     return ans;
 }
 
-std::vector<std::vector<int>> findPairBetter(Node *head, int sum)
+std::vector<std::pair<int, int>> findPairBetter(Node *head, int sum)
 {
-    std::vector<std::vector<int>> ans;
+    std::vector<std::pair<int, int>> ans;
     Node *temp = head;
     Node *tail = head;
     while (tail->next != nullptr)
@@ -99,16 +99,11 @@ int main()
     int sum;
     std::cin >> sum;
 
-    std::vector<std::vector<int>> ans = findPairBetter(head, sum);
+    std::vector<std::pair<int, int>> ans = findPairBetter(head, sum);
 
     for (size_t i = 0; i < ans.size(); ++i)
     {
-        for (size_t j = 0; j < ans[i].size(); ++j)
-        {
-            std::cout << ans[i][j] << " ";
-        }
-
-        std::cout << '\n';
+        std::cout << "(" << ans[i].first << ", " << ans[i].second << ")\n";
     }
 
     return 0;
