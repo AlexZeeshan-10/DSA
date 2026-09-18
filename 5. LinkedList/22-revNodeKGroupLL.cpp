@@ -15,6 +15,13 @@ public:
         : prev(nullptr), val(val1), next(nullptr) {}
 };
 
+Node *reverseLL(Node *head){
+    Node *prevNode = nullptr;
+    Node *nextNode = nullptr;
+    Node *temp = head;
+    
+}
+
 Node *revKGroup(Node *head, int k){
     
 }
