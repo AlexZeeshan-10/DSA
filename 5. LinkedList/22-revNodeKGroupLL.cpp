@@ -15,6 +15,10 @@ public:
         : prev(nullptr), val(val1), next(nullptr) {}
 };
 
+Node *revKGroup(Node *head, int k){
+    
+}
+
 int main()
 {
     int n;
