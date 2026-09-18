@@ -15,6 +15,10 @@ public:
         : prev(nullptr), val(val1), next(nullptr) {}
 };
 
+Node *removeDuplicates(Node *head){
+    
+}
+
 int main()
 {
     int n;
