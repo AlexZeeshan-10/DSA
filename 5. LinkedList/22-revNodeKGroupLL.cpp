@@ -15,10 +15,25 @@ public:
         : prev(nullptr), val(val1), next(nullptr) {}
 };
 
-Node *reverseLL(Node *head){
+Node *findKthNode(Node *temp, int k)
+{
+    k--;
+
+    while (temp && k > 0)
+    {
+        temp = temp->next;
+        k--;
+    }
+
+    return temp;
+}
+
+Node *reverseLL(Node *head)
+{
     Node *prevNode = nullptr;
     Node *nextNode = nullptr;
     Node *temp = head;
+
     while (temp)
     {
         nextNode = temp->next;
@@ -26,11 +41,39 @@ Node *reverseLL(Node *head){
         prevNode = temp;
         temp = nextNode;
     }
+
     return prevNode;
 }
 
-Node *revKGroup(Node *head, int k){
-    
+Node *revKGroup(Node *head, int k)
+{
+    Node *temp = head;
+    Node *prevNode = nullptr;
+
+    while (temp)
+    {
+        Node *kNode = findKthNode(temp, k);
+
+        if (kNode == nullptr)
+            break;
+
+        Node *nextNode = kNode->next;
+        kNode->next = nullptr;
+
+        reverseLL(temp);
+
+        if (temp == head)
+            head = kNode;
+        else
+            prevNode->next = kNode;
+
+        temp->next = nextNode;
+
+        prevNode = temp;
+        temp = nextNode;
+    }
+
+    return head;
 }
 
 int main()
