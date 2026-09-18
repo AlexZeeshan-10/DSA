@@ -15,8 +15,28 @@ public:
         : prev(nullptr), val(val1), next(nullptr) {}
 };
 
-Node *removeDuplicates(Node *head){
-    
+Node *removeDuplicates(Node *head)
+{
+    if (head == nullptr)
+        return nullptr;
+
+    Node *temp = head->next;
+    while (temp)
+    {
+        Node *prevNode = temp->prev;
+        Node *nextNode = temp->next;
+        if (temp->val == prevNode->val)
+        {
+            prevNode->next = nextNode;
+            if (nextNode)
+                nextNode->prev = prevNode;
+            delete temp;
+            temp = nextNode;
+        }
+        else
+            temp = temp->next;
+    }
+    return head;
 }
 
 int main()
@@ -48,6 +68,18 @@ int main()
 
     Node *temp = head;
     std::cout << "nullptr <-> ";
+    while (temp)
+    {
+        std::cout << temp->val << " <-> ";
+        temp = temp->next;
+    }
+    std::cout << "nullptr";
+
+    head = removeDuplicates(head);
+
+    temp = head;
+    std::cout << std::endl
+              << "nullptr <-> ";
     while (temp)
     {
         std::cout << temp->val << " <-> ";
