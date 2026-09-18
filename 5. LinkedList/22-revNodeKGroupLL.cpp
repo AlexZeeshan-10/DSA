@@ -19,7 +19,14 @@ Node *reverseLL(Node *head){
     Node *prevNode = nullptr;
     Node *nextNode = nullptr;
     Node *temp = head;
-    
+    while (temp)
+    {
+        nextNode = temp->next;
+        temp->next = prevNode;
+        prevNode = temp;
+        temp = nextNode;
+    }
+    return prevNode;
 }
 
 Node *revKGroup(Node *head, int k){
