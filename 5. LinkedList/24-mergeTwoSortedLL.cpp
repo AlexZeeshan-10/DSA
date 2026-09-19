@@ -16,35 +16,39 @@ public:
         : prev(nullptr), val(val1), next(nullptr) {}
 };
 
-Node *mergeTwoListBrute(Node *list1, Node *list2){
-    if(list1 == nullptr)
-            return list2;
-        
-        if(list2 == nullptr)
-            return list1;
-        
-        std::vector <int> store;
-        Node *temp = list1;
-        while(temp){
-            store.push_back(temp->val);
-            temp = temp->next;
-        }
+Node *mergeTwoListBrute(Node *list1, Node *list2)
+{
+    if (list1 == nullptr)
+        return list2;
 
-        temp = list2;
-        while(temp){
-            store.push_back(temp->val);
-            temp = temp->next;
-        }
+    if (list2 == nullptr)
+        return list1;
 
-        std::sort(store.begin(), store.end());
-        Node *newHead = new Node(store[0]);
-        temp = newHead;
-        for(int i = 1; i<store.size(); ++i){
-            Node *mover = new Node(store[i]);
-            temp->next = mover;
-            temp = temp->next;
-        }
-        return newHead;
+    std::vector<int> store;
+    Node *temp = list1;
+    while (temp)
+    {
+        store.push_back(temp->val);
+        temp = temp->next;
+    }
+
+    temp = list2;
+    while (temp)
+    {
+        store.push_back(temp->val);
+        temp = temp->next;
+    }
+
+    std::sort(store.begin(), store.end());
+    Node *newHead = new Node(store[0]);
+    temp = newHead;
+    for (int i = 1; i < store.size(); ++i)
+    {
+        Node *mover = new Node(store[i]);
+        temp->next = mover;
+        temp = temp->next;
+    }
+    return newHead;
 }
 
 int main()
@@ -107,5 +111,4 @@ int main()
         temp = temp->next;
     }
     std::cout << "nullptr" << std::endl;
-
 }
