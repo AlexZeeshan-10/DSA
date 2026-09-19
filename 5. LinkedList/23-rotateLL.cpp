@@ -15,6 +15,47 @@ public:
         : prev(nullptr), val(val1), next(nullptr) {}
 };
 
+Node *findNthNode(Node *temp, int k)
+{
+    int cnt = 1;
+    while (temp)
+    {
+        if (cnt == k)
+            return temp;
+
+        cnt++;
+        temp = temp->next;
+    }
+    return temp;
+}
+
+Node *rotateLL(Node *head, int k)
+{
+    if (head == nullptr || k == 0)
+        return head;
+
+    int len = 1;
+    Node *temp = head;
+    while (temp->next)
+    {
+        len++;
+        temp = temp->next;
+    }
+
+    if (k % len == 0)
+        return head;
+
+    k = k % len;
+
+    temp->next = head;
+
+    Node *newLastNode = findNthNode(head, len - k);
+    head = newLastNode->next;
+    newLastNode->next = nullptr;
+
+    return head;
+}
+
 int main()
 {
     int n;
@@ -52,4 +93,15 @@ int main()
 
     int k;
     std::cin >> k;
+
+    head = rotateLL(head, k);
+
+    temp = head;
+    std::cout << "nullptr <-> ";
+    while (temp)
+    {
+        std::cout << temp->val << " <-> ";
+        temp = temp->next;
+    }
+    std::cout << "nullptr" << std::endl;
 }
