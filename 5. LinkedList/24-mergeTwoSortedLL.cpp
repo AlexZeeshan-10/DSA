@@ -51,6 +51,44 @@ Node *mergeTwoListBrute(Node *list1, Node *list2)
     return newHead;
 }
 
+Node *mergeTwoListBetter(Node *list1, Node *list2)
+{
+    Node *dummyNode = new Node(-1);
+    Node *temp = dummyNode;
+
+    while (list1 && list2)
+    {
+        if (list1->val <= list2->val)
+        {
+            temp->next = list1;
+            temp = list1;
+            list1 = list1->next;
+        }
+        else
+        {
+            temp->next = list2;
+            temp = list2;
+            list2 = list2->next;
+        }
+    }
+    while (list1)
+    {
+        temp->next = list1;
+        temp = list1;
+        list1 = list1->next;
+    }
+    while (list2)
+    {
+        temp->next = list2;
+        temp = list2;
+        list2 = list2->next;
+    }
+
+    Node *newNode = dummyNode->next;
+    delete dummyNode;
+    return newNode;
+}
+
 int main()
 {
     int n1;
