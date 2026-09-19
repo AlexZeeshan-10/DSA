@@ -51,6 +51,11 @@ Node *mergeTwoListBrute(Node *list1, Node *list2)
     return newHead;
 }
 
+Node *mergeTwoListBetter(Node *list1, Node *list2)
+{
+    
+}
+
 int main()
 {
     int n1;
