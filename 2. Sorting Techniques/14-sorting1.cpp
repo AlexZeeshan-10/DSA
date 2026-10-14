@@ -65,7 +65,7 @@ int main()
     }
 
     // sorting
-    insertion_sort(arr, n);
+    bubble_sort(arr, n);
 
     // output
     for (int i = 0; i < n; i++)
