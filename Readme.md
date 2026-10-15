@@ -132,7 +132,8 @@ This repository uses **GitHub Actions** to automatically maintain its health and
 | 3. Array Problems | 28 |
 | 4. Binary Search | 27 |
 | 5. LinkedList | 24 |
-| **Total** | **96** |
+| 6. Recursions | 1 |
+| **Total** | **97** |
 
 <!-- PROGRESS_TRACKER_END -->
 
